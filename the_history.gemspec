@@ -9,15 +9,13 @@ Gem::Specification.new do |s|
   s.version     = TheHistory::VERSION
   s.authors     = ["qinmingyuan"]
   s.email       = ["mingyuan0715@foxmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of TheHistory."
-  s.description = "TODO: Description of TheHistory."
+  s.homepage    = 'https://github.com/yigexiangfa/the_history'
+  s.summary     = "Summary of TheHistory."
+  s.description = "Description of TheHistory."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 4.2.4"
-
-  s.add_development_dependency "sqlite3"
+  s.add_dependency 'rails', '>= 5.0'
 end
