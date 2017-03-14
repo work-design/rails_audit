@@ -6,7 +6,7 @@ module Auditable
     has_many :audits, as: :auditable
   end
 
-  def save_audits(operator_type: 'User', operator_id:, note: '', previous: false)
+  def save_audits(operator_type: 'User', operator_id: nil, note: '', previous: true)
     audit = self.audits.build
     if previous
       audit.audited_changes = self.previous_changes.except(*IGNORE)

@@ -1,13 +1,17 @@
 <div class="ui small modal">
   <i class="close icon"></i>
   <div class="ui header blue">
-    Login
+    系统日志
   </div>
   <div class="content">
     <table class="ui table">
       <thead>
       <tr>
-        <th colspan="3"></th>
+        <th>ID</th>
+        <th>操作人</th>
+        <th>操作类型</th>
+        <th>创建时间</th>
+        <th>Changes</th>
       </tr>
       </thead>
 
@@ -15,7 +19,17 @@
       <% @audits.each do |audit| %>
         <tr>
           <td><%= audit.id %></td>
-          <td><%= audit.created_at.to_s %></td>
+          <td><%= audit.operator&.name %></td>
+          <td><%= audit.action %></td>
+          <td><%= audit.created_at.to_s(:db) %></td>
+          <td>
+            <% audit.audited_changes_i18n.each do |key, value| %>
+              <p>
+                <span class="ui label"><%= key %>:</span>
+                <%= value[0] %><i class="arrow circle right icon grey"></i><%= value[1] %>
+              </p>
+            <% end %>
+          </td>
         </tr>
       <% end %>
       </tbody>
