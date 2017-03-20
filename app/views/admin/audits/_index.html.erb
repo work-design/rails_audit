@@ -12,25 +12,13 @@
         <th>操作类型</th>
         <th>创建时间</th>
         <th>Changes</th>
+        <th>Related Changes</th>
       </tr>
       </thead>
 
       <tbody>
       <% @audits.each do |audit| %>
-        <tr>
-          <td><%= audit.id %></td>
-          <td><%= audit.operator&.name %></td>
-          <td><%= audit.action %></td>
-          <td><%= audit.created_at.to_s(:db) %></td>
-          <td>
-            <% audit.audited_changes_i18n.each do |key, value| %>
-              <p>
-                <span class="ui label"><%= key %>:</span>
-                <%= value[0] %><i class="arrow circle right icon grey"></i><%= value[1] %>
-              </p>
-            <% end %>
-          </td>
-        </tr>
+        <%= render partial: 'audit', locals: { audit: audit } %>
       <% end %>
       </tbody>
     </table>

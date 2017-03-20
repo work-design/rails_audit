@@ -1,0 +1,27 @@
+<tr>
+  <td><%= audit.id %></td>
+  <td><%= audit.operator&.name %></td>
+  <td><%= audit.action %></td>
+  <td><%= audit.created_at.to_s(:db) %></td>
+  <td>
+    <% audit.audited_changes_i18n.each do |key, value| %>
+      <p>
+        <span class="ui label"><%= key %>:</span>
+        <%= value[0] %><i class="arrow circle right icon grey"></i><%= value[1] %>
+      </p>
+    <% end %>
+  </td>
+  <td>
+    <% audit.related_changes.each do |key, value| %>
+      <% value.each do |relate| %>
+        <p>
+          <span class="ui label"><%= key %>: <%= relate[:id] %></span>
+          <% relate[:changes].each do |k, v| %>
+            <span class="ui label"><%= k %>: </span>
+            <%= v[0] %><i class="arrow circle right icon grey"></i><%= v[1] %>
+          <% end %>
+        </p>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

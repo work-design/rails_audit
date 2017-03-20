@@ -24,19 +24,37 @@ module Auditable
     if include.present?
       result = {}
       include.each do |key|
-        target = self.association(key).target
+        targets = self.send(key)
+        result[key] = []
 
-        if previous
-          _changes = target.previous_changes.except(*IGNORE)
+        if targets.respond_to?(:each)
+          targets.each do |target|
+            if previous
+              _changes = target.previous_changes.except(*IGNORE)
+            else
+              _changes = target.changes
+            end
+
+            if _changes.present?
+              result[key] << {
+                id: target.id,
+                changes: _changes
+              }
+            end
+          end
         else
-          _changes = target.changes
-        end
+          if previous
+            _changes = targets.previous_changes.except(*IGNORE)
+          else
+            _changes = targets.changes
+          end
 
-        if _changes.present?
-          result[key] = {
-            id: target.id,
-            changes: _changes
-          }
+          if _changes.present?
+            result[key] << {
+              id: targets.id,
+              changes: _changes
+            }
+          end
         end
       end
       audit.related_changes = result
@@ -47,6 +65,5 @@ module Auditable
     audit.note = note
     audit.save
   end
-
 
 end
