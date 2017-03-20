@@ -32,10 +32,12 @@ module Auditable
           _changes = target.changes
         end
 
-        result[key] = {
-          id: target.id,
-          changes: _changes
-        }
+        if _changes.present?
+          result[key] = {
+            id: target.id,
+            changes: _changes
+          }
+        end
       end
       audit.related_changes = result
     end
