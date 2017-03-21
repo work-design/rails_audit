@@ -23,14 +23,14 @@ end
 # :content, :string, limit: 65535
 # :commit_id, :integer
 # :commit_message, :string
-
-t.integer  "wiki_id",        limit: 4
-t.integer  "knowledge_id",   limit: 4
-t.text     "body",           limit: 65535
-t.string   "commit_message", limit: 4096
-t.datetime "created_at"
-t.datetime "updated_at"
-t.integer  "commit_id",      limit: 4
-t.boolean  "active",                       default: false
-t.integer  "status",         limit: 4,     default: 0
-t.string   "type",           limit: 255
+#
+# t.integer  "wiki_id",        limit: 4
+# t.integer  "knowledge_id",   limit: 4
+# t.text     "body",           limit: 65535
+# t.string   "commit_message", limit: 4096
+# t.datetime "created_at"
+# t.datetime "updated_at"
+# t.integer  "commit_id",      limit: 4
+# t.boolean  "active",                       default: false
+# t.integer  "status",         limit: 4,     default: 0
+# t.string   "type",           limit: 255
