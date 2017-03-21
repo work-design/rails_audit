@@ -1,4 +1,4 @@
-class MajorRecord < WikiRecord
+class MajorRecord < ApplicationRecord
 
   belongs_to :knowledge, counter_cache: true
 

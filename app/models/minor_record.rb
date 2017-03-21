@@ -1,4 +1,4 @@
-class MinorRecord < WikiRecord
+class MinorRecord < ApplicationRecord
 
   belongs_to :knowledge, counter_cache: true
 

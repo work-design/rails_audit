@@ -1,4 +1,4 @@
-class History < ActiveRecord::Base
+class History < ApplicationRecord
   paginates_per 10
 
   belongs_to :wiki
