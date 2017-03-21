@@ -4,20 +4,6 @@
     系统日志
   </div>
   <div class="content">
-    <table class="ui table">
-      <thead>
-      <tr>
-        <th>操作人</th>
-        <th>Changes</th>
-        <th>Related Changes</th>
-      </tr>
-      </thead>
-
-      <tbody>
-      <% @audits.each do |audit| %>
-        <%= render partial: 'audit', locals: { audit: audit } %>
-      <% end %>
-      </tbody>
-    </table>
+    <%= render 'table' %>
   </div>
 </div>
