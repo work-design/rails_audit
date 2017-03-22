@@ -13,10 +13,10 @@ module Auditable
   #   }
   # }
 
-  def save_audits(operator_type: 'User', operator_id: nil, note: '', previous: true, include: [])
+  def save_audits(operator_type: 'User', operator_id: nil, note: nil, action: nil, saved: true, include: [])
     audit = self.audits.build
-    if previous
-      audit.audited_changes = self.previous_changes.except(*IGNORE)
+    if saved
+      audit.audited_changes = self.saved_changes.except(*IGNORE)
     else
       audit.audited_changes = self.changes
     end
@@ -29,8 +29,8 @@ module Auditable
 
         if targets.respond_to?(:each)
           targets.each do |target|
-            if previous
-              _changes = target.previous_changes.except(*IGNORE)
+            if saved
+              _changes = target.saved_changes.except(*IGNORE)
             else
               _changes = target.changes
             end
@@ -43,8 +43,8 @@ module Auditable
             end
           end
         else
-          if previous
-            _changes = targets.previous_changes.except(*IGNORE)
+          if saved
+            _changes = targets.saved_changes.except(*IGNORE)
           else
             _changes = targets.changes
           end
@@ -63,6 +63,7 @@ module Auditable
     audit.operator_type = operator_type
     audit.operator_id = operator_id
     audit.note = note
+    audit.action = action
     audit.save
   end
 

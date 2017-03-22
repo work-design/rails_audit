@@ -1,7 +1,8 @@
 <table class="ui table">
   <thead>
   <tr>
-    <th>操作人</th>
+    <th>Operator</th>
+    <th>Note</th>
     <th>Changes</th>
     <th>Related Changes</th>
   </tr>
@@ -14,27 +15,31 @@
         <p><%= audit.operator&.name %></p>
         <p><%= audit.action %></p>
         <p><%= audit.created_at.to_s(:db) %></p>
+        <p class="ui label">Action: <%= audit.action %></p>
       </td>
-      <td>
+      <td><%= audit.note %></td>
+      <td class="ui list">
         <% audit.audited_changes_i18n.each do |key, value| %>
-          <p>
-            <span class="ui label"><%= key %>:</span>
-            <%= value[0] %><i class="arrow circle right icon grey"></i><%= value[1] %>
-          </p>
+          <div class="item">
+            <div class="ui label">
+              <%= key %>:
+              <span class="detail"><%= value[0] %><i class="arrow circle right icon grey"></i><%= value[1] %></span>
+            </div>
+          </div>
         <% end %>
       </td>
       <td>
         <% audit.related_changes.each do |key, value| %>
-            <% value.each do |relate| %>
-                <div class="ui segment">
-                  <span class="ui blue label"><%= key %>: <%= relate[:id] %></span>
-                  <div class="ui divider"></div>
-                  <% relate[:changes].each do |k, v| %>
-                      <span class="ui label"><%= k %>: </span>
-                      <%= v[0] %><i class="arrow circle right icon grey"></i><%= v[1] %>
-                  <% end %>
-                </div>
-            <% end %>
+          <% value.each do |relate| %>
+            <div class="ui segment">
+              <span class="ui blue label"><%= key %>: <%= relate[:id] %></span>
+              <div class="ui divider"></div>
+              <% relate[:changes].each do |k, v| %>
+                <span class="ui label"><%= k %>: </span>
+                <%= v[0] %><i class="arrow circle right icon grey"></i><%= v[1] %>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       </td>
     </tr>
