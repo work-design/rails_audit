@@ -23,7 +23,11 @@
           <div class="item">
             <div class="ui label">
               <%= key %>:
-              <span class="detail"><%= value[0] %><i class="arrow circle right icon grey"></i><%= value[1] %></span>
+              <div class="detail">
+                <span><%= value[0] %></span>
+                <i class="arrow circle right icon grey"></i>
+                <span><%= value[1] %></span>
+              </div>
             </div>
           </div>
         <% end %>
@@ -35,8 +39,10 @@
               <span class="ui blue label"><%= key %>: <%= relate[:id] %></span>
               <div class="ui divider"></div>
               <% relate[:changes].each do |k, v| %>
-                <span class="ui label"><%= k %>: </span>
-                <%= v[0] %><i class="arrow circle right icon grey"></i><%= v[1] %>
+                <div class="ui label"><%= k %>: </div>
+                <%= v[0] %>
+                <i class="arrow circle right icon grey"></i>
+                <%= v[1] %>
               <% end %>
             </div>
           <% end %>
