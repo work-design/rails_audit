@@ -22,7 +22,6 @@ Unlike [audited](https://github.com/collectiveidea/audited) and [paper_trail](ht
 
 ### in Model
 1. include Auditable
-2. call save_audits()
 
 ```ruby
 class User < ActiveRecord::Base
@@ -37,7 +36,8 @@ end
 ```ruby
 class UsersController < ApplicationController
   
-  before_action only: [:update, :create, :destroy] do
+  # use after action, will auto record changes by use saved_changes api
+  after_action only: [:update, :create, :destroy] do
     mark_audites(User, note: 'note something!', client_headers: request.headers)
   end
   
