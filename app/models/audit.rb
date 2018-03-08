@@ -1,6 +1,8 @@
 class Audit < ApplicationRecord
   serialize :audited_changes, Hash
   serialize :related_changes, Hash
+  serialize :unconfirmed_changes, Hash
+  serialize :extra, Hash
 
   belongs_to :auditable, polymorphic: true
   belongs_to :operator, polymorphic: true
