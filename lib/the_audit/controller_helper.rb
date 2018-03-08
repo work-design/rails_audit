@@ -1,4 +1,4 @@
-module TheHistory::ControllerHelper
+module TheAudit::ControllerHelper
   
  
   
@@ -31,5 +31,5 @@ module TheHistory::ControllerHelper
 end
 
 ActiveSupport.on_load :action_controller_base do
-  include TheHistory::ControllerHelper
+  include TheAudit::ControllerHelper
 end

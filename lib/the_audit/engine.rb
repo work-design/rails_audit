@@ -1,4 +1,4 @@
-module TheHistory
+module TheAudit
   class Engine < ::Rails::Engine
   end
 end
