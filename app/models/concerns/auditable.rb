@@ -41,6 +41,10 @@ module Auditable
       
       audit.related_changes = result
     end
+    
+    if self.destroyed?
+      audit.action = 'destroy'
+    end
 
     audit.operator_type = current_operator.class.name
     audit.operator_id = current_operator.id

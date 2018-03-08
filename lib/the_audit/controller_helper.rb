@@ -12,7 +12,7 @@ module TheAudit::ControllerHelper
         record = instance_variable_get(ivar)
         if record.is_a? record_class
           record.save_audits current_operator: the_audit_user,
-                             includes: includes,
+                             include: includes,
                              note: options[:note],
                              controller_path: controller_path,
                              action_name: action_name,
