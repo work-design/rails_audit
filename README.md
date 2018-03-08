@@ -8,6 +8,7 @@ Unlike [audited](https://github.com/collectiveidea/audited) and [paper_trail](ht
 2. action
 3. request.remote_ip
 4. current_operator
+5. any other info you want to record..
 
 ### Model style audit VS controller style audit
 

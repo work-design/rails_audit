@@ -45,11 +45,10 @@ module Auditable
     audit.operator_type = current_operator.class.name
     audit.operator_id = current_operator.id
     audit.note = extra_options.delete(:note)
-    audit.controller_name = extra_options.delete(:controller_name)
+    audit.controller_path = extra_options.delete(:controller_path)
     audit.action_name = extra_options.delete(:action_name)
     audit.remote_ip = extra_options.delete(:remote_ip)
     audit.extra = extra_options
-    audit.action = action
     audit.save
   end
 

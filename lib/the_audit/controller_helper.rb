@@ -1,26 +1,30 @@
 module TheAudit::ControllerHelper
   
- 
-  
-  def mark_audits(*record_classes, **options)
+  def mark_audits(**options)
+    record_classes = options.select { |k, _|
+      record_class = k.to_s.safe_constantize
+      record_class && record_class.ancestors.include?(ActiveRecord::Base)
+    }
     
-    valid_ivars.find { |ivar| record_classes.include?(ivar.class) }.each do |record|
-      record.save_audits current_operator: the_audit_user,
-                         note: options[:note],
-                         
+    record_classes.each do |record_symbol, includes|
+      record_class = record_symbol.to_s.constantize
+      valid_ivars.find do |ivar|
+        record = instance_variable_get(ivar)
+        if record.is_a? record_class
+          record.save_audits current_operator: the_audit_user,
+                             includes: includes,
+                             note: options[:note],
+                             controller_path: controller_path,
+                             action_name: action_name,
+                             remote_ip: request.remote_ip,
+                             extra: options[:extra]
+        end
+      end
     end
-    
   end
   
   def the_audit_user
     current_user
-  end
-  
-  def sync_audit_infos
-    {
-      current_operator: current_user,
-      remote_ip: request.remote_ip
-    }
   end
 
   def valid_ivars

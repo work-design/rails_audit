@@ -1,4 +1,3 @@
-require "the_audit/engine"
+require 'the_audit/engine'
 
-module TheAudit
-end
+require 'the_audit/controller_helper'

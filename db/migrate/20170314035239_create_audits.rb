@@ -10,7 +10,7 @@ class CreateAudits < ActiveRecord::Migration[5.1]
       t.string :unconfirmed_changes, limit: 4096
       t.string :note, limit: 1024
       t.string :remote_ip
-      t.string :controller_name
+      t.string :controller_path
       t.string :action_name
       t.string :extra, limit: 4096
       t.datetime :created_at, index: true, null: false
