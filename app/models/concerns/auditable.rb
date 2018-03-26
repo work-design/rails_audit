@@ -13,18 +13,18 @@ module Auditable
   #   }
   # }
 
-  def save_audits(current_operator: current_operator, include: [], **extra_options)
+  def save_audits(operator: current_operator, include: [], **extra_options)
     audit = self.audits.build
     audit.audited_changes = self.saved_changes.except(*IGNORE)
     audit.unconfirmed_changes = self.changes
 
     if include.present?
       result = {}
-      
+
       include.each do |key|
         targets = self.send(key)
         result[key] = []
-        
+
         Array(targets).each do |target|
           _saved_changes = target.saved_changes.except(*IGNORE)
           _changes = target.changes
@@ -38,16 +38,16 @@ module Auditable
           end
         end
       end
-      
+
       audit.related_changes = result
     end
-    
+
     if self.destroyed?
       audit.action = 'destroy'
     end
 
-    audit.operator_type = current_operator.class.name
-    audit.operator_id = current_operator.id
+    audit.operator_type = operator.class.name
+    audit.operator_id = operator.id
     audit.note = extra_options.delete(:note)
     audit.controller_path = extra_options.delete(:controller_path)
     audit.action_name = extra_options.delete(:action_name)
