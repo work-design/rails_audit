@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    the_audit (0.0.1)
+    rails_audit (0.0.1)
       rails (>= 5.0)
 
 GEM
@@ -120,7 +120,7 @@ PLATFORMS
 
 DEPENDENCIES
   rails (>= 5.2.0)
-  the_audit!
+  rails_audit!
 
 BUNDLED WITH
    1.16.3

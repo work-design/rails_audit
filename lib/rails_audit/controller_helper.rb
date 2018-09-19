@@ -1,17 +1,17 @@
-module TheAudit::ControllerHelper
-  
+module RailsAudit::ControllerHelper
+
   def mark_audits(**options)
     record_classes = options.select { |k, _|
       record_class = k.to_s.safe_constantize
       record_class && record_class.ancestors.include?(ActiveRecord::Base)
     }
-    
+
     record_classes.each do |record_symbol, includes|
       record_class = record_symbol.to_s.constantize
       valid_ivars.find do |ivar|
         record = instance_variable_get(ivar)
         if record.is_a? record_class
-          record.save_audits current_operator: the_audit_user,
+          record.save_audits current_operator: rails_audit_user,
                              include: includes,
                              note: options[:note],
                              controller_path: controller_path,
@@ -22,8 +22,8 @@ module TheAudit::ControllerHelper
       end
     end
   end
-  
-  def the_audit_user
+
+  def rails_audit_user
     current_user
   end
 
@@ -35,5 +35,5 @@ module TheAudit::ControllerHelper
 end
 
 ActiveSupport.on_load :action_controller_base do
-  include TheAudit::ControllerHelper
+  include RailsAudit::ControllerHelper
 end

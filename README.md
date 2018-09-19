@@ -1,8 +1,8 @@
-# TheAudit
+# RailsAudit
 
 Unlike [audited](https://github.com/collectiveidea/audited) and [paper_trail](https://github.com/airblade/paper_trail) etc. These model audit tools use model callbacks to record every changes.
 
-`the_audit` record ActiveRecord Model changes in Controllers, it will record context with model changes:
+`rails_audit` record ActiveRecord Model changes in Controllers, it will record context with model changes:
 
 1. controller
 2. action
