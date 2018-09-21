@@ -10,10 +10,15 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/yougexiangfa/rails_audit'
   s.summary = "Summary of RailsAudit."
   s.description = "Description of RailsAudit."
-  s.license = 'MIT'
+  s.license = 'LGPL-3.0'
 
-  s.files = Dir['{app,config,db,lib}/**/*', 'LICENSE', 'Rakefile', 'README.md']
+  s.files = Dir[
+    '{app,config,db,lib}/**/*',
+    'LICENSE',
+    'Rakefile',
+    'README.md'
+  ]
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'rails', '>= 5.0'
+  s.add_dependency 'rails', '>= 5.0', '<= 6.0'
 end
