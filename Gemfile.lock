@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    rails_audit (0.0.1)
-      rails (>= 5.0)
+    rails_audit (1.0.0)
+      rails (>= 5.0, <= 6.0)
 
 GEM
   remote: https://rubygems.org/

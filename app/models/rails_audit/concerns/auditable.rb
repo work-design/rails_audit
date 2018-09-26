@@ -12,7 +12,6 @@ module Auditable
   #     name: ['a', 'b']
   #   }
   # }
-
   def save_audits(operator: current_operator, include: [], **extra_options)
     audit = self.audits.build
     audit.audited_changes = self.saved_changes.except(*IGNORE)

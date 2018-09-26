@@ -1,0 +1,17 @@
+<div class="ui modal" id="modal">
+  <i class="close icon"></i>
+  <div class="ui header blue">
+    Add Note
+  </div>
+  
+  <div class="content">
+    <%= form_with model: @check, url: checks_path do |f| %>
+      <%= render 'shared/error_messages', target: @check %>
+      <%= f.hidden_field :state %>
+      <%= f.text_area :comment %>
+      <%= f.check_box :verified %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+</div>

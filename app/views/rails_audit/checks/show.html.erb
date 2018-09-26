@@ -1,0 +1,26 @@
+<div class="ui segment breadcrumb">
+  <%= link_to 'Back', checks_path, class: 'section' %>
+  <div class="divider"> / </div>
+  <div class="active section">Show</div>
+</div>
+
+<table class="ui very basic large table">
+  <tbody>
+    <tr>
+      <td class="right aligned"><%= Check.human_attribute_name(:member_id) %></td>
+      <td><%= @check.member_id %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= Check.human_attribute_name(:comment) %></td>
+      <td><%= @check.comment %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= Check.human_attribute_name(:approved) %></td>
+      <td><%= @check.approved %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= Check.human_attribute_name(:position) %></td>
+      <td><%= @check.position %></td>
+    </tr>
+  </tbody>
+</table>
