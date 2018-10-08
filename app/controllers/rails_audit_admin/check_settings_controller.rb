@@ -1,4 +1,4 @@
-class RailsAudit::CheckSettingsController < RailsAudit::BaseController
+class RailsAuditAdmin::CheckSettingsController < RailsAuditAdmin::BaseController
   before_action :set_check_setting, only: [:show, :edit, :update, :destroy]
 
   def index

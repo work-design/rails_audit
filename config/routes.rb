@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  scope module: 'admin', path: ':auditable_type/:auditable_id' do
+  scope module: 'rails_audit_admin', path: ':auditable_type/:auditable_id' do
     resources :audits, only: ['index']
-    scope path: ':checking_type/:checking_id' do
-      resources :checks
-    end
+  end
+
+  scope module: 'rails_audit_admin', path: ':checking_type/:checking_id' do
+    resources :checks
     resources :check_settings
   end
 

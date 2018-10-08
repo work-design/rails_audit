@@ -1,4 +1,4 @@
-class TheAudit::AuditsController < TheAudit::BaseController
+class RailsAuditAdmin::AuditsController < RailsAuditAdmin::BaseController
 
   def index
     @audits = Audit.where(auditable_type: params[:auditable_type], auditable_id: params[:auditable_id]).page(params[:page])
