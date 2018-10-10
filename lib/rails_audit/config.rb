@@ -5,9 +5,8 @@ module RailsAudit #:nodoc:
 
   configure do |config|
     config.app_class = 'ApplicationController'
-    config.my_class = 'My::BaseController'
-    config.admin_class = 'Admin::BaseController'
-    config.api_class = 'Api::BaseController'
+    config.my_class = 'MyController'
+    config.admin_class = 'AdminController'
   end
 
 end
