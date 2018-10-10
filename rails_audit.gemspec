@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.email = ['mingyuan0715@foxmail.com']
   s.homepage = 'https://github.com/yougexiangfa/rails_audit'
   s.summary = 'Audit changes for model with operator'
-  s.description = "Description of RailsAudit."
+  s.description = 'Description of RailsAudit.'
   s.license = 'LGPL-3.0'
 
   s.files = Dir[
