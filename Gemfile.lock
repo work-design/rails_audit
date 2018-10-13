@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails_audit (1.0.0)
+    rails_audit (1.0.2)
       rails (>= 5.0, <= 6.0)
 
 GEM

@@ -1,6 +1,6 @@
-class CreateAudits < ActiveRecord::Migration[5.1]
+class RailsAuditInit < ActiveRecord::Migration[5.1]
   def change
-    
+
     create_table :audits do |t|
       t.references :auditable, polymorphic: true
       t.references :operator, polymorphic: true
@@ -15,6 +15,6 @@ class CreateAudits < ActiveRecord::Migration[5.1]
       t.string :extra, limit: 4096
       t.datetime :created_at, index: true, null: false
     end
-    
+
   end
 end
