@@ -6,5 +6,4 @@ module CheckMachine
     has_many :checks, as: :checking
   end
 
-
 end

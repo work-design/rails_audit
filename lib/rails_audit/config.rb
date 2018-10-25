@@ -7,6 +7,7 @@ module RailsAudit #:nodoc:
     config.app_class = 'ApplicationController'
     config.my_class = 'MyController'
     config.admin_class = 'AdminController'
+    config.current_operator = :current_user
   end
 
 end

@@ -58,7 +58,7 @@ class Audit::Admin::ChecksController < Audit::Admin::BaseController
       :state
     )
     q.merge! checking_type: params[:checking_type], checking_id: params[:checking_id]
-    q.merge! member_id: current_member.id
+    q.merge! operator_type: current_operator.class.name, operator_id: current_operator.id
     q
   end
 
