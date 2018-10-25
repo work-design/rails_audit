@@ -16,5 +16,22 @@ class RailsAuditInit < ActiveRecord::Migration[5.1]
       t.datetime :created_at, index: true, null: false
     end
 
+    create_table :checks do |t|
+      t.references :checking, polymorphic: true
+      t.references :operator, polymorphic: true
+      t.string :state
+      t.string :comment
+      t.boolean :verified
+
+      t.timestamps
+    end
+
+    create_table :check_settings do |t|
+      t.references :checking, polymorphic: true
+      t.string :code
+
+      t.timestamps
+    end
+
   end
 end

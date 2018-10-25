@@ -2,7 +2,7 @@ class Check < ApplicationRecord
   attribute :verified, :boolean, default: true
 
   belongs_to :checking, polymorphic: true
-  belongs_to :member
+  belongs_to :operator, polymorphic: true
 
   after_create_commit :checking_trigger
 
