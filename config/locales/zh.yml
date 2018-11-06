@@ -1,0 +1,12 @@
+zh:
+  audit/admin:
+    checks:
+      new:
+        check: 审核
+  activerecord:
+    models:
+      check: 审核
+    attributes:
+      check:
+        confirmed: 确认？
+        comment: 备注

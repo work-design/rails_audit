@@ -1,11 +1,11 @@
 <table class="ui very basic table">
   <% target.checks.each do |check| %>
-    <tr>
-      <td>
-        <span class="ui label"><%= target.class.enum_i18n(:state, check.state) %></span>
-      </td>
-      <td><%= check.comment %></td>
-      <td><%= check.operator.name %></td>
-    </tr>
+  <tr>
+    <td>
+      <span class="ui label"><%= target.class.enum_i18n(:state, check.state) %></span>
+    </td>
+    <td><%= check.comment %></td>
+    <td><%= check.operator.name %></td>
+  </tr>
   <% end %>
 </table>

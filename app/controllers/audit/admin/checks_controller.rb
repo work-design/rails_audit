@@ -54,7 +54,7 @@ class Audit::Admin::ChecksController < Audit::Admin::BaseController
   def check_params
     q = params.fetch(:check, {}).permit(
       :comment,
-      :verified,
+      :confirmed,
       :state
     )
     q.merge! checking_type: params[:checking_type], checking_id: params[:checking_id]

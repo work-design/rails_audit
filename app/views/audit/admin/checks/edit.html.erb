@@ -5,5 +5,12 @@
 </div>
 
 <div class="ui segment">
-  <%= render 'form' %>
+  <%= form_with model: @check, local: true do |f| %>
+    <%= render 'shared/error_messages', target: @check %>
+    <%= f.number_field :member_id %>
+    <%= f.text_field :comment %>
+    <%= f.check_box :confirmed %>
+    <%= f.number_field :position %>
+    <%= f.submit %>
+  <% end %>
 </div>

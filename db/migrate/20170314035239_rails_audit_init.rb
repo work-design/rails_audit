@@ -21,15 +21,13 @@ class RailsAuditInit < ActiveRecord::Migration[5.1]
       t.references :operator, polymorphic: true
       t.string :state
       t.string :comment
-      t.boolean :verified
-
+      t.boolean :confirmed, default: true
       t.timestamps
     end
 
     create_table :check_settings do |t|
       t.references :checking, polymorphic: true
       t.string :code
-
       t.timestamps
     end
 

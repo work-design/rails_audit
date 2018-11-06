@@ -1,7 +1,7 @@
 <div class="ui modal" id="modal">
   <i class="close icon"></i>
   <div class="ui header blue">
-    Add Note
+    <%= t('.check') %>
   </div>
   
   <div class="content">
@@ -9,7 +9,7 @@
       <%= render 'shared/error_messages', target: @check %>
       <%= f.hidden_field :state %>
       <%= f.text_area :comment %>
-      <%= f.check_box :verified %>
+      <%= f.check_box :confirmed %>
       <%= f.submit %>
     <% end %>
   </div>

@@ -1,5 +1,5 @@
 class Check < ApplicationRecord
-  attribute :verified, :boolean, default: true
+  attribute :confirmed, :boolean, default: true
 
   belongs_to :checking, polymorphic: true
   belongs_to :operator, polymorphic: true
@@ -7,7 +7,7 @@ class Check < ApplicationRecord
   after_create_commit :checking_trigger
 
   def checking_trigger
-    if self.verified
+    if self.confirmed
       checking.do_trigger state: self.state
     end
   end
