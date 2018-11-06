@@ -3,6 +3,11 @@
   <tr>
     <td>
       <span class="ui label"><%= target.class.enum_i18n(:state, check.state) %></span>
+      <% if check.confirmed? %>
+        <i class="green check icon"></i>
+      <% else %>
+        <i class="red question icon"></i>
+      <% end %>
     </td>
     <td><%= check.comment %></td>
     <td><%= check.operator.name %></td>
