@@ -13,7 +13,7 @@ class Audit::Admin::CheckSettingsController < Audit::Admin::BaseController
     @check_setting = CheckSetting.new(check_setting_params)
 
     if @check_setting.save
-      redirect_to hr_check_settings_url, notice: 'Check setting was successfully created.'
+      redirect_to admin_check_settings_url, notice: 'Check setting was successfully created.'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Audit::Admin::CheckSettingsController < Audit::Admin::BaseController
 
   def update
     if @check_setting.update(check_setting_params)
-      redirect_to hr_check_settings_url, notice: 'Check setting was successfully updated.'
+      redirect_to admin_check_settings_url, notice: 'Check setting was successfully updated.'
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Audit::Admin::CheckSettingsController < Audit::Admin::BaseController
 
   def destroy
     @check_setting.destroy
-    redirect_to hr_check_settings_url, notice: 'Check setting was successfully destroyed.'
+    redirect_to admin_check_settings_url, notice: 'Check setting was successfully destroyed.'
   end
 
   private
