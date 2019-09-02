@@ -5,14 +5,21 @@ class RailsAuditInit < ActiveRecord::Migration[5.1]
       t.references :auditable, polymorphic: true
       t.references :operator, polymorphic: true
       t.string :action
-      t.string :audited_changes, limit: 4096
-      t.string :related_changes, limit: 4096
-      t.string :unconfirmed_changes, limit: 4096
+      if connection.adapter_name == 'PostgreSQL'
+        t.jsonb :audited_changes
+        t.jsonb :related_changes
+        t.jsonb :unconfirmed_changes
+        t.jsonb :extra
+      else
+        t.json :audited_changes
+        t.json :related_changes
+        t.json :unconfirmed_changes
+        t.json :extra
+      end
       t.string :note, limit: 1024
       t.string :remote_ip
       t.string :controller_path
       t.string :action_name
-      t.string :extra, limit: 4096
       t.datetime :created_at, index: true, null: false
     end
 

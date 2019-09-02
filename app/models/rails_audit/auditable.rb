@@ -1,4 +1,4 @@
-module Auditable
+module RailsAudit::Auditable
   extend ActiveSupport::Concern
   IGNORE = ['updated_at']
 
