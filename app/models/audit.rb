@@ -1,3 +1,3 @@
 class Audit < RailsAuthRecord
-  include RailsAuth::Audit
+  include RailsAudit::Audit
 end unless defined? Audit

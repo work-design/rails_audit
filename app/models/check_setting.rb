@@ -1,3 +1,3 @@
 class CheckSetting < RailsAuthRecord
-  include RailsAuth::CheckSetting
+  include RailsAudit::CheckSetting
 end unless defined? CheckSetting

@@ -5,10 +5,10 @@ module RailsAudit::Audit
     attribute :related_changes, :json
     attribute :unconfirmed_changes, :json
     attribute :extra, :json
+
+    belongs_to :auditable, polymorphic: true
+    belongs_to :operator, polymorphic: true
   end
-  
-  belongs_to :auditable, polymorphic: true
-  belongs_to :operator, polymorphic: true
 
   def audited_changes_i18n
     audited_changes.transform_keys { |key| auditable.class.human_attribute_name(key) }

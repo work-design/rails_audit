@@ -1,3 +1,3 @@
 class Check < RailsAuthRecord
-  include RailsAuth::Check
+  include RailsAudit::Check
 end unless defined? Check
