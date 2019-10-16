@@ -35,7 +35,6 @@ class Audit::Admin::CheckSettingsController < Audit::Admin::BaseController
 
   def destroy
     @check_setting.destroy
-    redirect_to admin_check_settings_url, notice: 'Check setting was successfully destroyed.'
   end
 
   private

@@ -39,7 +39,6 @@ class Audit::Admin::ChecksController < Audit::Admin::BaseController
 
   def destroy
     @check.destroy
-    redirect_to checks_url, notice: 'Check was successfully destroyed.'
   end
 
   private

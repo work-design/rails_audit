@@ -33,7 +33,3 @@ module RailsAudit::ControllerHelper
   end
 
 end
-
-ActiveSupport.on_load :action_controller_base do
-  include RailsAudit::ControllerHelper
-end

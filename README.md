@@ -25,7 +25,7 @@ Unlike [audited](https://github.com/collectiveidea/audited) and [paper_trail](ht
 
 ```ruby
 class User < ActiveRecord::Base
-  include Auditable
+  include RailsAudit::Auditable
   
 end
 
@@ -35,7 +35,7 @@ end
 
 ```ruby
 class UsersController < ApplicationController
-  
+  include RailsAudit::Application
   # use after action, will auto record changes by use saved_changes api
   after_action only: [:update, :create, :destroy] do
     mark_audites(User, note: 'note something!', extra: { client_headers: request.headers })
