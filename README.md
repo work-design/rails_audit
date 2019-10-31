@@ -44,5 +44,10 @@ class UsersController < ApplicationController
 end
 ```
 
+### in View
+```ruby
+  link_to 'Audits', audits_path('User', user.id), remote: true
+```
+
 ## License
 The gem is available as open source under the terms of the [LGPL License](https://opensource.org/licenses/LGPL-3.0).

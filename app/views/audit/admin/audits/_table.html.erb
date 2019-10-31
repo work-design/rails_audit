@@ -1,11 +1,11 @@
 <table class="ui table">
   <thead>
-  <tr>
-    <th>Operator</th>
-    <th>Note</th>
-    <th>Changes</th>
-    <th>Related Changes</th>
-  </tr>
+    <tr>
+      <th><%= Audit.human_attribute_name(:operator) %></th>
+      <th><%= Audit.human_attribute_name(:note) %></th>
+      <th><%= Audit.human_attribute_name(:audited_changes) %></th>
+      <th><%= Audit.human_attribute_name(:related_changes) %></th>
+    </tr>
   </thead>
 
   <tbody>

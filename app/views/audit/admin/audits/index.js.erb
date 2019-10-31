@@ -1,8 +1,2 @@
-if ($('.ui.modals').length === 0) {
-  $('body').append('<%= j(render 'index') %>');
-} else {
-  $('.ui.modals').html('<%= j(render 'index') %>');
-}
-
-
-$('#audits_index').modal('setting', {autofocus: false}).modal('show');
+$('#modal').replaceWith('<%= j(render 'index') %>');
+$('#modal').modal({autofocus: false}).modal('show');
