@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  scope ':auditable_type/:auditable_id', module: 'audit/admin' do
+  scope ':audited_type/:audited_id', module: 'audit/admin' do
     resources :audits, only: ['index']
   end
 

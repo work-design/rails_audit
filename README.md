@@ -21,11 +21,11 @@ Unlike [audited](https://github.com/collectiveidea/audited) and [paper_trail](ht
 ## Usage
 
 ### in Model
-1. include Auditable
+1. include Audited
 
 ```ruby
 class User < ActiveRecord::Base
-  include RailsAudit::Auditable
+  include RailsAudit::Audited
   
 end
 

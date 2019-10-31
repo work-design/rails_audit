@@ -2,7 +2,7 @@ class RailsAuditInit < ActiveRecord::Migration[5.1]
   def change
 
     create_table :audits do |t|
-      t.references :auditable, polymorphic: true
+      t.references :audited, polymorphic: true
       t.references :operator, polymorphic: true
       t.string :action
       if connection.adapter_name == 'PostgreSQL'

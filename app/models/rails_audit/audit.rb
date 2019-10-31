@@ -6,7 +6,7 @@ module RailsAudit::Audit
     attribute :unconfirmed_changes, :json
     attribute :extra, :json, default: {}
 
-    belongs_to :auditable, polymorphic: true
+    belongs_to :audited, polymorphic: true
     belongs_to :operator, polymorphic: true
   end
 

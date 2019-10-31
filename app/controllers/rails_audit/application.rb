@@ -1,4 +1,4 @@
-module RailsAudit::ControllerHelper
+module RailsAudit::Application
 
   def mark_audits(**options)
     record_classes = options.select { |k, _|
@@ -25,11 +25,6 @@ module RailsAudit::ControllerHelper
 
   def rails_audit_user
     current_user
-  end
-
-  def valid_ivars
-    _except = self._protected_ivars.to_a + [:@marked_for_same_origin_verification]
-    self.instance_variables - _except
   end
 
 end

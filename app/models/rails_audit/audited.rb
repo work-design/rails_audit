@@ -1,9 +1,9 @@
-module RailsAudit::Auditable
+module RailsAudit::Audited
   extend ActiveSupport::Concern
   IGNORE = ['updated_at']
 
   included do
-    has_many :audits, as: :auditable
+    has_many :audits, as: :audited
   end
 
   # user: {
