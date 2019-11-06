@@ -13,13 +13,10 @@
     <tr id="audit_<%= audit.id %>">
       <td>
         <p><%= audit.operator&.name %></p>
-        <p><%= audit.action %></p>
         <p><time><%= audit.created_at.to_s(:rfc822) %></time></p>
-        <div class="ui labels">
-          <span class="ui label">Action: <%= audit.action %></span>
-          <span class="ui label">Path: <%= audit.controller_path %>/<%= audit.action_name %></span>
-        </div>
-        <p>IP: <%= audit.remote_ip %></p>
+        <p><%= audit.action %></p>
+        <p><%= audit.controller_path %>/<%= audit.action_name %></p>
+        <p><%= audit.remote_ip %></p>
       </td>
       <td><%= audit.note %></td>
       <td class="ui list">

@@ -5,6 +5,7 @@ module RailsAudit::Audit
     attribute :related_changes, :json, default: {}
     attribute :unconfirmed_changes, :json, default: {}
     attribute :extra, :json, default: {}
+    attribute :action, :string, default: 'update'
 
     belongs_to :audited, polymorphic: true
     belongs_to :operator, polymorphic: true
