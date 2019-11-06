@@ -42,6 +42,8 @@ module RailsAudit::Audited
       end
     end
     audit.related_changes = result
+    
+    return if audit.audited_changes.blank? && audit.unconfirmed_changes.blank? && audit.related_changes.blank?
 
     if self.destroyed?
       audit.action = 'destroy'
