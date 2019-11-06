@@ -12,10 +12,8 @@ class Audit::Admin::CheckSettingsController < Audit::Admin::BaseController
   def create
     @check_setting = CheckSetting.new(check_setting_params)
 
-    if @check_setting.save
-      redirect_to admin_check_settings_url, notice: 'Check setting was successfully created.'
-    else
-      render :new
+    unless @check_setting.save
+      render :new, locals: { model: @check_setting }, status: :unprocessable_entity
     end
   end
 
@@ -26,10 +24,10 @@ class Audit::Admin::CheckSettingsController < Audit::Admin::BaseController
   end
 
   def update
-    if @check_setting.update(check_setting_params)
-      redirect_to admin_check_settings_url, notice: 'Check setting was successfully updated.'
-    else
-      render :edit
+    @check_setting.assign_attributes(check_setting_params)
+    
+    if @check_setting.save
+      render :edit, locals: { model: @check_setting }, status: :unprocessable_entity
     end
   end
 

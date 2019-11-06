@@ -12,14 +12,8 @@ class Audit::Admin::ChecksController < Audit::Admin::BaseController
   def create
     @check = Check.new(check_params)
 
-    respond_to do |format|
-      if @check.save
-        format.js
-        format.html { redirect_to checks_url, notice: 'Check was successfully created.' }
-      else
-        format.js
-        format.html { render :new }
-      end
+    if @check.save
+      render :new, locals: { model: @check }, status: :unprocessable_entity
     end
   end
 
@@ -30,10 +24,10 @@ class Audit::Admin::ChecksController < Audit::Admin::BaseController
   end
 
   def update
-    if @check.update(check_params)
-      redirect_to checks_url, notice: 'Check was successfully updated.'
-    else
-      render :edit
+    @check.assign_attributes(check_params)
+    
+    if @check.save
+      render :edit, locals: { model: @check }, status: :unprocessable_entity
     end
   end
 
@@ -57,7 +51,7 @@ class Audit::Admin::ChecksController < Audit::Admin::BaseController
       :state
     )
     q.merge! checking_type: params[:checking_type], checking_id: params[:checking_id]
-    q.merge! operator_type: current_operator.class.name, operator_id: current_operator.id
+    q.merge! operator_type: rails_audit_user.class.name, operator_id: rails_audit_user.id
     q
   end
 

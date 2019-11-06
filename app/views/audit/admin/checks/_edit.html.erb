@@ -3,13 +3,14 @@
   <div class="ui header">
     <%= t('.check') %>
   </div>
-  
+
   <div class="content">
-    <%= form_with model: @check, url: checks_path do |f| %>
+    <%= form_with model: @check do |f| %>
       <%= render 'shared/error_messages', target: @check %>
-      <%= f.hidden_field :state %>
-      <%= f.text_area :comment %>
+      <%= f.number_field :member_id %>
+      <%= f.text_field :comment %>
       <%= f.check_box :confirmed %>
+      <%= f.number_field :position %>
       <%= f.submit %>
     <% end %>
   </div>
