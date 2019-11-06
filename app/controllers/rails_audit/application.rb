@@ -6,12 +6,10 @@ module RailsAudit::Application
       if record.is_a? record_class
         record.save_audits(
           operator: rails_audit_user,
-          include: options[:include],
-          note: options[:note],
           controller_path: controller_path,
           action_name: action_name,
           remote_ip: request.remote_ip,
-          extra: options[:extra]
+          **options.slice(:only, :except, :include, :note, :extra)
         )
       end
     end

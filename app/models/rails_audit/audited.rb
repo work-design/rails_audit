@@ -1,6 +1,5 @@
 module RailsAudit::Audited
   extend ActiveSupport::Concern
-  IGNORE = ['updated_at']
 
   included do
     has_many :audits, as: :audited
@@ -12,34 +11,37 @@ module RailsAudit::Audited
   #     name: ['a', 'b']
   #   }
   # }
-  def save_audits(operator:, include: [], **extra_options)
+  # params same as as_json
+  def save_audits(operator:, only: [], except: [], include: [], **extra_options)
     audit = self.audits.build
-    audit.audited_changes = self.saved_changes.except(*IGNORE)
-    audit.unconfirmed_changes = self.changes
+    if only.present?
+      audit.audited_changes = self.saved_changes.slice(*only)
+      audit.unconfirmed_changes = self.changes.slice(*only)
+    else
+      except = RailsAudit.config.default_except + except
+      audit.audited_changes = self.saved_changes.except(*except)
+      audit.unconfirmed_changes = self.changes.except(*except)
+    end
+    
+    result = {}
+    include.each do |key|
+      targets = self.public_send(key)
+      result[key] = []
 
-    if include.present?
-      result = {}
+      Array(targets).each do |target|
+        _saved_changes = target.saved_changes.except(*RailsAudit.config.default_except)
+        _changes = target.changes
 
-      include.each do |key|
-        targets = self.send(key)
-        result[key] = []
-
-        Array(targets).each do |target|
-          _saved_changes = target.saved_changes.except(*IGNORE)
-          _changes = target.changes
-
-          if _saved_changes.present? || _changes.present?
-            result[key] << {
-              id: target.id,
-              saved_changes: _saved_changes,
-              changes: _changes
-            }
-          end
+        if _saved_changes.present? || _changes.present?
+          result[key] << {
+            id: target.id,
+            saved_changes: _saved_changes,
+            changes: _changes
+          }
         end
       end
-
-      audit.related_changes = result
     end
+    audit.related_changes = result
 
     if self.destroyed?
       audit.action = 'destroy'

@@ -7,6 +7,9 @@ module RailsAudit #:nodoc:
     config.app_controller = 'ApplicationController'
     config.my_controller = 'MyController'
     config.admin_controller = 'AdminController'
+    config.default_except = [
+      'updated_at'
+    ]
   end
 
 end
