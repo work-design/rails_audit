@@ -1,0 +1,9 @@
+zh:
+  audit:
+    admin:
+      checks:
+        new:
+          check: 审核
+      audits:
+        index:
+          title: 系统日志

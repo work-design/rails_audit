@@ -1,8 +1,4 @@
 zh:
-  audit/admin:
-    checks:
-      new:
-        check: 审核
   activerecord:
     models:
       check: 审核
@@ -10,3 +6,9 @@ zh:
       check:
         confirmed: 确认？
         comment: 备注
+      audit:
+        action: 操作
+        controller_path: API
+        operator: 操作人
+        audited_changes: 修改历史
+        related_changes: 关联修改历史
