@@ -1,0 +1,28 @@
+<table class="ui very basic large table">
+  <thead>
+    <tr>
+      <th class="six wide">
+        <%= link_to t('.edit'), edit_admin_approval_path(@approval), class: 'ui mini blue right floated button', remote: true %>
+      </th>
+      <th class="ten wide"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="right aligned"><%= Approval.human_attribute_name(:pending_changes) %></td>
+      <td><%= @approval.pending_changes %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= Approval.human_attribute_name(:note) %></td>
+      <td><%= @approval.note %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= Approval.human_attribute_name(:state) %></td>
+      <td><%= @approval.state %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= Approval.human_attribute_name(:approved_at) %></td>
+      <td><%= @approval.approved_at %></td>
+    </tr>
+  </tbody>
+</table>

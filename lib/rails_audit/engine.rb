@@ -1,10 +1,7 @@
 require 'rails_com'
-
 module RailsAudit
   class Engine < ::Rails::Engine
-  
-    config.factory_bot.definition_file_paths += Dir["#{config.root}/test/factories"] if defined?(FactoryBotRails)
-  
+    
     config.generators do |g|
       g.rails = {
         assets: false,

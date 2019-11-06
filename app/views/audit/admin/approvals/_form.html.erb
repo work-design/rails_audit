@@ -1,0 +1,8 @@
+<%= form_with model: @approval do |f| %>
+  <%= render 'shared/error_messages', target: @approval %>
+  <%= f.text_field :pending_changes %>
+  <%= f.text_field :note %>
+  <%= f.text_field :state %>
+  <%= f.text_field :approved_at %>
+  <%= f.submit %>
+<% end %>

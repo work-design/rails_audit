@@ -23,6 +23,16 @@ class RailsAuditInit < ActiveRecord::Migration[5.1]
       t.datetime :created_at, index: true, null: false
     end
 
+    create_table :approvals do |t|
+      t.references :operator, polymorphic: true
+      t.references :approving, polymorphic: true
+      t.string :pending_changes, limit: 4096
+      t.string :note, limit: 1024
+      t.string :state
+      t.datetime :approved_at
+      t.timestamps
+    end
+
     create_table :checks do |t|
       t.references :checking, polymorphic: true
       t.references :operator, polymorphic: true

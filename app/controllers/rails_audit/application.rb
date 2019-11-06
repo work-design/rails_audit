@@ -1,5 +1,6 @@
 module RailsAudit::Application
 
+  # after_action
   def mark_audits(record_class, **options)
     valid_ivars.find do |ivar|
       record = instance_variable_get(ivar)
@@ -13,6 +14,10 @@ module RailsAudit::Application
         )
       end
     end
+  end
+  
+  def mark_approvals(record_class, **options)
+    valid_ivars.find do |ivar|
   end
 
   def rails_audit_user
