@@ -2,7 +2,7 @@ require 'test_helper'
 class Audit::Admin::ApprovalsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-    @audit_admin_approval = create audit_admin_approvals
+    @approval = create :approval
   end
 
   test 'index ok' do
@@ -17,30 +17,30 @@ class Audit::Admin::ApprovalsControllerTest < ActionDispatch::IntegrationTest
 
   test 'create ok' do
     assert_difference('Approval.count') do
-      post admin_approvals_url, params: { #{singular_table_name}: { #{attributes_string} } }
+      post admin_approvals_url, params: {  }
     end
 
     assert_response :success
   end
 
   test 'show ok' do
-    get admin_approval_url(@audit_admin_approval)
+    get admin_approval_url(@approval)
     assert_response :success
   end
 
   test 'edit ok' do
-    get edit_admin_approval_url(@audit_admin_approval)
+    get edit_admin_approval_url(@approval)
     assert_response :success
   end
 
   test 'update ok' do
-    patch admin_approval_url(@audit_admin_approval), params: { #{singular_table_name}: { #{attributes_string} } }
+    patch admin_approval_url(@approval), params: { }
     assert_response :success
   end
 
   test 'destroy ok' do
     assert_difference('Approval.count', -1) do
-      delete admin_approval_url(@audit_admin_approval)
+      delete admin_approval_url(@approval)
     end
 
     assert_response :success
