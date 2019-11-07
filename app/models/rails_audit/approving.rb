@@ -58,7 +58,7 @@ module RailsAudit::Approving
   
   def pending_changes
     if approval
-      approval.pending_changes.transform_values { |i| i[0] }
+      approval.pending_changes.transform_values { |i| i[1] }
     else
       {}
     end
