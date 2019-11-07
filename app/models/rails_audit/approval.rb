@@ -13,14 +13,14 @@ module RailsAudit::Approval
       init: 'init'
     }
     
-    before_update :xx, if: -> { approved_changed? && approved }
+    before_update :xx, if: -> { approved_changed? }
     
     def xx
-      approving.update pending_changes.transform_values { |i| i[1] }
-    end
-    
-    def revert_xx
-      approving.update pending_changes.transform_values { |i| i[0] }
+      if approved
+        approving.update pending_changes.transform_values { |i| i[1] }
+      else
+        approving.update pending_changes.transform_values { |i| i[0] }
+      end
     end
     
   end
