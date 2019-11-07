@@ -10,7 +10,7 @@
   <tbody>
   <% @approvals.each do |approval| %>
     <tr>
-      <td><%= approval.pending_changes %></td>
+      <td><%= simple_format approval.pending_changes_i18n %></td>
       <td><%= approval.comment %></td>
       <td><%= approval.approved_at %></td>
       <td>

@@ -14,6 +14,10 @@ module RailsAudit::Approval
     }
     
     before_update :apply_changes, if: -> { approved_changed? }
+
+    def pending_changes_i18n
+      pending_changes.transform_keys { |key| approving.class.human_attribute_name(key) }
+    end
     
     def apply_changes
       if approved
