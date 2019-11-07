@@ -15,9 +15,9 @@ module RailsAudit::Approving
   def save_approvals(operator:, only: [], except: [], **extra_options)
     approval = self.approvals.build
     if only.present?
-      audit.audited_changes = self.saved_changes.slice(*only)
+      approval.pending_changes = self.changes.slice(*only)
     else
-      audit.audited_changes = self.saved_changes.except(*except)
+      approval.pending_changes = self.changes.except(*except)
     end
     
     result = {}
@@ -26,34 +26,28 @@ module RailsAudit::Approving
       result[key] = []
 
       Array(targets).each do |target|
-        _saved_changes = target.saved_changes.except(*RailsAudit.config.default_except)
         _changes = target.changes
 
         if _saved_changes.present? || _changes.present?
           result[key] << {
             id: target.id,
-            saved_changes: _saved_changes,
             changes: _changes
           }
         end
       end
     end
-    audit.related_changes = result
+    approval.related_changes = result
     
-    return if audit.audited_changes.blank? && audit.unconfirmed_changes.blank? && audit.related_changes.blank?
+    return if approval.pending_changes.blank? && approval.related_changes.blank?
 
-    if self.destroyed?
-      audit.action = 'destroy'
-    end
-
-    audit.operator_type = operator.class.name
-    audit.operator_id = operator.id
-    audit.note = extra_options.delete(:note)
-    audit.controller_path = extra_options.delete(:controller_path)
-    audit.action_name = extra_options.delete(:action_name)
-    audit.remote_ip = extra_options.delete(:remote_ip)
-    audit.extra = extra_options
-    audit.save
+    approval.operator_type = operator.class.name
+    approval.operator_id = operator.id
+    approval.note = extra_options.delete(:note)
+    approval.controller_path = extra_options.delete(:controller_path)
+    approval.action_name = extra_options.delete(:action_name)
+    approval.remote_ip = extra_options.delete(:remote_ip)
+    approval.extra = extra_options
+    approval.save
   end
 
 end
