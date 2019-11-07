@@ -2,7 +2,7 @@ module RailsAudit::Approving
   extend ActiveSupport::Concern
 
   included do
-    has_many :approvals, as: :approving
+    has_many :approvals, as: :approving, autosave: true
   end
 
   # user: {
@@ -12,7 +12,7 @@ module RailsAudit::Approving
   #   }
   # }
   # params same as as_json
-  def save_with_approvals(only: [], except: [], **extra_options)
+  def save_with_approvals(only: [], except: [], include: [], **extra_options)
     for_changes = {}
     
     if only.present?
@@ -42,10 +42,14 @@ module RailsAudit::Approving
     for_changes[:related_changes] = result
     
     if for_changes[:pending_changes].present? || for_changes[:related_changes].present?
-      self.approvals.build(for_changes)
+      approval = self.approvals.build(for_changes)
+      self.class.transaction do
+        approval.save!
+        self.save!
+      end
+    else
+      self.save
     end
-    
-    self.save
   end
 
 end

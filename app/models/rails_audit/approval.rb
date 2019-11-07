@@ -5,7 +5,7 @@ module RailsAudit::Approval
     attribute :related_changes, :json, default: {}
 
     belongs_to :approving, polymorphic: true
-    belongs_to :operator, polymorphic: true
+    belongs_to :operator, polymorphic: true, optional: true
   end
 
 end
