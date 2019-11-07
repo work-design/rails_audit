@@ -15,22 +15,6 @@ module RailsAudit::Application
       end
     end
   end
-  
-  # before_action
-  def mark_approvals(record_class, **options)
-    valid_ivars.find do |ivar|
-      record = instance_variable_get(ivar)
-      if record.is_a? record_class
-        record.save_approvals(
-          operator: rails_audit_user,
-          controller_path: controller_path,
-          action_name: action_name,
-          remote_ip: request.remote_ip,
-          **options.slice(:only, :except, :include, :note, :extra)
-        )
-      end
-    end
-  end
 
   def rails_audit_user
     current_user

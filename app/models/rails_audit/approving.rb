@@ -12,13 +12,14 @@ module RailsAudit::Approving
   #   }
   # }
   # params same as as_json
-  def save_approvals(operator:, only: [], except: [], **extra_options)
-    approval = self.approvals.build
+  def save_with_approvals(only: [], except: [], **extra_options)
+    for_changes = {}
+    
     if only.present?
-      approval.pending_changes = self.changes.slice(*only)
+      for_changes[:pending_changes] = self.changes.slice(*only)
       self.assign_attributes self.changed_attributes.slice(*only)
     else
-      approval.pending_changes = self.changes.except(*except)
+      for_changes[:pending_changes] = self.changes.except(*except)
       self.assign_attributes self.changed_attributes.except(*except)
     end
     
@@ -38,18 +39,13 @@ module RailsAudit::Approving
         end
       end
     end
-    approval.related_changes = result
+    for_changes[:related_changes] = result
     
-    return if approval.pending_changes.blank? && approval.related_changes.blank?
-
-    approval.operator_type = operator.class.name
-    approval.operator_id = operator.id
-    approval.note = extra_options.delete(:note)
-    approval.controller_path = extra_options.delete(:controller_path)
-    approval.action_name = extra_options.delete(:action_name)
-    approval.remote_ip = extra_options.delete(:remote_ip)
-    approval.extra = extra_options
-    approval.save
+    if for_changes[:pending_changes].present? || for_changes[:related_changes].present?
+      self.approvals.build(for_changes)
+    end
+    
+    self.save
   end
 
 end
