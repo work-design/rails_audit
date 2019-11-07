@@ -3,7 +3,6 @@
     <tr>
       <th><%= Approval.human_attribute_name(:pending_changes) %></th>
       <th><%= Approval.human_attribute_name(:comment) %></th>
-      <th><%= Approval.human_attribute_name(:state) %></th>
       <th><%= Approval.human_attribute_name(:approved_at) %></th>
       <th></th>
     </tr>
@@ -13,7 +12,6 @@
     <tr>
       <td><%= approval.pending_changes %></td>
       <td><%= approval.comment %></td>
-      <td><%= approval.state %></td>
       <td><%= approval.approved_at %></td>
       <td>
         <div class="ui toggle checkbox">

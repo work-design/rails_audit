@@ -2,7 +2,9 @@ class Audit::Admin::ApprovalsController < Audit::Admin::BaseController
   before_action :set_approval, only: [:show, :edit, :update, :destroy]
 
   def index
-    @approvals = Approval.page(params[:page])
+    q_params = {}
+    q_params.merge! params.permit(:approving_type, :approving_id)
+    @approvals = Approval.default_where(q_params).order(id: :desc).page(params[:page])
   end
 
   def new

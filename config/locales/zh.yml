@@ -6,6 +6,10 @@ zh:
       check:
         confirmed: 确认？
         comment: 备注
+      approval:
+        pending_changes: 待审核修改
+        comment: 备注
+        approved_at: 审核时间
       audit:
         action: 操作
         controller_path: API
