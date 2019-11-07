@@ -16,8 +16,10 @@ module RailsAudit::Approving
     approval = self.approvals.build
     if only.present?
       approval.pending_changes = self.changes.slice(*only)
+      self.assign_attributes self.changed_attributes.slice(*only)
     else
       approval.pending_changes = self.changes.except(*except)
+      self.assign_attributes self.changed_attributes.except(*except)
     end
     
     result = {}
