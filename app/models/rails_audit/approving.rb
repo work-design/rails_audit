@@ -4,6 +4,7 @@ module RailsAudit::Approving
   included do
     attribute :unapproved_approvals_count, :integer, default: 0
     
+    has_one :approval, ->{ where(approved: false).order(id: :desc) }, as: :approving
     has_many :approvals, as: :approving, autosave: true  # to test why autosave not works well
     has_many :unapproved_approvals, ->{ where(approved: false) }, class_name: 'Approval', as: :approving
   end
@@ -52,6 +53,14 @@ module RailsAudit::Approving
       end
     else
       self.save
+    end
+  end
+  
+  def pending_changes
+    if approval
+      approval.pending_changes.transform_values { |i| i[0] }
+    else
+      {}
     end
   end
 
