@@ -13,9 +13,9 @@ module RailsAudit::Approval
       init: 'init'
     }
     
-    before_update :xx, if: -> { approved_changed? }
+    before_update :apply_changes, if: -> { approved_changed? }
     
-    def xx
+    def apply_changes
       if approved
         approving.update pending_changes.transform_values { |i| i[1] }
       else

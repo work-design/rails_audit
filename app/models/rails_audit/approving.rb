@@ -2,7 +2,10 @@ module RailsAudit::Approving
   extend ActiveSupport::Concern
 
   included do
-    has_many :approvals, as: :approving, autosave: true
+    attribute :unapproved_approvals_count, :integer, default: 0
+    
+    has_many :approvals, as: :approving, autosave: true  # to test why autosave not works well
+    has_many :unapproved_approvals, ->{ where(approved: false) }, class_name: 'Approval', as: :approving
   end
 
   # user: {
@@ -12,7 +15,7 @@ module RailsAudit::Approving
   #   }
   # }
   # params same as as_json
-  def save_with_approvals(only: [], except: [], include: [], **extra_options)
+  def save_with_approvals(only: [], except: [], include: [])
     for_changes = {}
     
     if only.present?
