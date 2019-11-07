@@ -35,7 +35,7 @@ module RailsAudit::Approving
       Array(targets).each do |target|
         _changes = target.changes
 
-        if _saved_changes.present? || _changes.present?
+        if _changes.present?
           result[key] << {
             id: target.id,
             changes: _changes
