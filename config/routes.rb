@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   scope ':approving_type/:approving_id', module: 'audit/admin' do
     resources :approvals, only: [:index]
   end
-  
+
   scope :admin, module: 'audit/admin', as: :admin do
     resources :approvals, except: [:index]
   end

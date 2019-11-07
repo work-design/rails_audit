@@ -29,6 +29,7 @@ class RailsAuditInit < ActiveRecord::Migration[5.1]
       t.string :pending_changes, limit: 4096
       t.string :state
       t.string :comment
+      t.boolean :approved, default: false
       t.datetime :approved_at
       t.timestamps
     end

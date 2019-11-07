@@ -16,9 +16,9 @@
       <td><%= approval.state %></td>
       <td><%= approval.approved_at %></td>
       <td>
-        <%= link_to edit_admin_approval_path(approval), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
-          <i class="fas fa-pencil-alt"></i>
-        <% end %>
+        <div class="ui toggle checkbox">
+          <%= check_box_tag '[approval]approved', nil, approval.approved, data: { method: :patch, remote: true, url: admin_approval_path(approval), submit: true }, id: nil %>
+        </div>
       </td>
     </tr>
   <% end %>

@@ -43,9 +43,8 @@ class Audit::Admin::ApprovalsController < Audit::Admin::BaseController
   def approval_params
     params.fetch(:approval, {}).permit(
       :pending_changes,
-      :note,
-      :state,
-      :approved_at
+      :approved,
+      :state
     )
   end
 
