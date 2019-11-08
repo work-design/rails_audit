@@ -16,11 +16,9 @@ module RailsAudit::Audited
     audit = self.audits.build
     if only.present?
       audit.audited_changes = self.saved_changes.slice(*only)
-      audit.unconfirmed_changes = self.changes.slice(*only)
     else
       except = RailsAudit.config.default_except + except
       audit.audited_changes = self.saved_changes.except(*except)
-      audit.unconfirmed_changes = self.changes.except(*except)
     end
     
     result = {}
@@ -43,7 +41,7 @@ module RailsAudit::Audited
     end
     audit.related_changes = result
     
-    return if audit.audited_changes.blank? && audit.unconfirmed_changes.blank? && audit.related_changes.blank?
+    return if audit.audited_changes.blank? && audit.related_changes.blank?
 
     if self.destroyed?
       audit.action = 'destroy'

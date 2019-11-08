@@ -3,7 +3,6 @@ module RailsAudit::Audit
   included do
     attribute :audited_changes, :json, default: {}
     attribute :related_changes, :json, default: {}
-    attribute :unconfirmed_changes, :json, default: {}
     attribute :extra, :json, default: {}
     attribute :action, :string, default: 'update'
 

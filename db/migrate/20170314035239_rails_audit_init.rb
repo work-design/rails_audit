@@ -8,12 +8,10 @@ class RailsAuditInit < ActiveRecord::Migration[5.1]
       if connection.adapter_name == 'PostgreSQL'
         t.jsonb :audited_changes
         t.jsonb :related_changes
-        t.jsonb :unconfirmed_changes
         t.jsonb :extra
       else
         t.json :audited_changes
         t.json :related_changes
-        t.json :unconfirmed_changes
         t.json :extra
       end
       t.string :note, limit: 1024
@@ -26,7 +24,13 @@ class RailsAuditInit < ActiveRecord::Migration[5.1]
     create_table :approvals do |t|
       t.references :operator, polymorphic: true
       t.references :approving, polymorphic: true
-      t.string :pending_changes, limit: 4096
+      if connection.adapter_name == 'PostgreSQL'
+        t.jsonb :pending_changes
+        t.jsonb :related_changes
+      else
+        t.json :pending_changes
+        t.json :related_changes
+      end
       t.string :state
       t.string :comment
       t.boolean :approved, default: false
