@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th><%= Approval.human_attribute_name(:pending_changes) %></th>
+      <th><%= Approval.human_attribute_name(:related_changes) %></th>
       <th><%= Approval.human_attribute_name(:comment) %></th>
       <th><%= Approval.human_attribute_name(:approved_at) %></th>
       <th></th>
@@ -11,6 +12,7 @@
   <% @approvals.each do |approval| %>
     <tr>
       <td><%= simple_format approval.pending_changes_i18n %></td>
+      <td><%= simple_format approval.related_changes %></td>
       <td><%= approval.comment %></td>
       <td><%= approval.approved_at %></td>
       <td>

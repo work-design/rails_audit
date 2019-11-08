@@ -22,11 +22,24 @@ module RailsAudit::Approval
     def apply_changes
       if approved
         self.approved_at = Time.current
-        approving.update pending_changes.transform_values { |i| i[1] }
+        approving.assign_attributes apply_attributes
       else
         self.approved_at = Time.current
-        approving.update pending_changes.transform_values { |i| i[0] }
+        approving.assign_attributes revert_attributes
       end
+      
+      approving.save
+    end
+    
+    def apply_attributes
+      pending_changes.transform_values { |i| i[1] }
+      related_changes.transform_values do |i|
+        i.map { |i| i }
+      end
+    end
+    
+    def revert_attributes
+      pending_changes.transform_values { |i| i[0] }
     end
     
   end

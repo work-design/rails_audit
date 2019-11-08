@@ -30,16 +30,14 @@ module RailsAudit::Approving
     result = {}
     include.each do |key|
       targets = self.public_send(key)
-      result[key] = []
+      attr_key = "#{key}_attributes"
+      result[attr_key] = []
 
       Array(targets).each do |target|
         _changes = target.changes
 
         if _changes.present?
-          result[key] << {
-            id: target.id,
-            changes: _changes
-          }
+          result[attr_key] << { id: target.id }.merge!(_changes)
         end
       end
     end

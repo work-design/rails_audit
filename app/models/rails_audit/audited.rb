@@ -24,18 +24,14 @@ module RailsAudit::Audited
     result = {}
     include.each do |key|
       targets = self.public_send(key)
-      result[key] = []
+      attr_key = "#{key}_attributes"
+      result[attr_key] = []
 
       Array(targets).each do |target|
         _saved_changes = target.saved_changes.except(*RailsAudit.config.default_except)
-        _changes = target.changes
 
-        if _saved_changes.present? || _changes.present?
-          result[key] << {
-            id: target.id,
-            saved_changes: _saved_changes,
-            changes: _changes
-          }
+        if _saved_changes.present?
+          result[attr_key] << { id: target.id }.merge!(_saved_changes)
         end
       end
     end
