@@ -32,14 +32,21 @@ module RailsAudit::Approval
     end
     
     def apply_attributes
-      pending_changes.transform_values { |i| i[1] }
-      related_changes.transform_values do |i|
-        i.map { |i| i }
+      r1 = pending_changes.transform_values { |i| i[-1] }
+      r2 = related_changes.transform_values do |i|
+        i.map { |si| si.transform_values(&->(c){ Array(c)[-1] }) }
       end
+      
+      r1.merge! r2
     end
     
     def revert_attributes
-      pending_changes.transform_values { |i| i[0] }
+      r1 = pending_changes.transform_values { |i| i[0] }
+      r2 = related_changes.transform_values do |i|
+        i.map { |si| si.transform_values(&->(c){ Array(c)[0] }) }
+      end
+      
+      r1.merge! r2
     end
     
   end
