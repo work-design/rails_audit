@@ -53,12 +53,11 @@ module RailsAudit::Approving
     end
   end
   
-  def pending_changes
+  def temp_apply_changes
     if approval
-      approval.apply_attributes
-    else
-      {}
+      assign_attributes approval.apply_attributes
     end
+    self
   end
 
 end
