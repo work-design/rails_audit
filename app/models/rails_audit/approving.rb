@@ -34,10 +34,9 @@ module RailsAudit::Approving
       result[attr_key] = []
 
       Array(targets).each do |target|
-        _changes = target.changes
-
-        if _changes.present?
-          result[attr_key] << { id: target.id }.merge!(_changes)
+        if target.changes.present?
+          result[attr_key] << { id: target.id }.merge!(target.changes)
+          target.clear_changes_information
         end
       end
     end
@@ -56,7 +55,7 @@ module RailsAudit::Approving
   
   def pending_changes
     if approval
-      approval.pending_changes.transform_values { |i| i[1] }
+      approval.apply_attributes
     else
       {}
     end
