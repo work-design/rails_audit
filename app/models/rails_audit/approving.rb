@@ -5,7 +5,7 @@ module RailsAudit::Approving
     attribute :unapproved_approvals_count, :integer, default: 0
     
     has_one :approval, ->{ where(approved: false).order(id: :desc) }, as: :approving
-    has_many :approvals, as: :approving, autosave: true  # to test why autosave not works well
+    has_many :approvals, as: :approving, autosave: true, dependent: :delete_all  # to test why autosave not works well
     has_many :unapproved_approvals, ->{ where(approved: false) }, class_name: 'Approval', as: :approving
   end
 
