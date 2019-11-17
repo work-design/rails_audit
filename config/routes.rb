@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   scope :admin, module: 'audit/admin', as: :admin do
-    resources :approvals, except: [:index]
+    resources :approvals, except: [:index, :new, :create]
   end
 
 end

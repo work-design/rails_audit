@@ -7,18 +7,6 @@ class Audit::Admin::ApprovalsController < Audit::Admin::BaseController
     @approvals = Approval.default_where(q_params).order(id: :desc).page(params[:page])
   end
 
-  def new
-    @approval = Approval.new
-  end
-
-  def create
-    @approval = Approval.new(approval_params)
-
-    unless @approval.save
-      render :new, locals: { model: @approval }, status: :unprocessable_entity
-    end
-  end
-
   def show
   end
 

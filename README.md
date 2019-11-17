@@ -50,4 +50,4 @@ end
 ```
 
 ## 许可证
-License 采用 [LGPL License](https://opensource.org/licenses/LGPL-3.0).
+许可证采用 [LGPL License](https://opensource.org/licenses/LGPL-3.0)
