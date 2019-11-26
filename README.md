@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   include RailsAudit::Application
   # use after action, will auto record changes by use saved_changes api
   after_action only: [:update, :create, :destroy] do
-    mark_audits(User, note: 'note something!', extra: { client_headers: request.headers })
+    mark_audits(:@user, note: 'note something!', extra: { client_headers: request.headers })
   end
   
 end
