@@ -2,6 +2,8 @@ module RailsAudit::Check
   extend ActiveSupport::Concern
 
   included do
+    attribute :state, :string
+    attribute :comment, :string
     attribute :confirmed, :boolean, default: true
   
     belongs_to :checking, polymorphic: true

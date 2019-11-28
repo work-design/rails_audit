@@ -1,11 +1,13 @@
 module RailsAudit::Approval
   extend ActiveSupport::Concern
   included do
-    attribute :pending_changes, :json, default: {}
-    attribute :related_changes, :json, default: {}
     attribute :state, :string, default: 'init'
     attribute :approved, :boolean, default: false
-    
+    attribute :pending_changes, :json, default: {}
+    attribute :related_changes, :json, default: {}
+    attribute :comment, :string
+    attribute :approved_at, :datetime
+
     belongs_to :approving, polymorphic: true
     belongs_to :operator, polymorphic: true, optional: true
     
