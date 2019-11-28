@@ -7,6 +7,7 @@ module RailsAudit::Approval
     attribute :related_changes, :json, default: {}
     attribute :comment, :string
     attribute :approved_at, :datetime
+    attribute :unapproved_approvals_count, :integer, default: 0
 
     belongs_to :approving, polymorphic: true
     belongs_to :operator, polymorphic: true, optional: true
