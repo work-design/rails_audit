@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: ef01a067868b0afe14015fe1782dc2a2cd7ec90d
+  revision: 1b22a7c8ecedeb8e392259640fe409def64257e8
   specs:
     default_form (1.5.0)
       rails (>= 5.2, <= 6.1)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: f6ccbd9dabbf60266c9550050923d17b014785ad
+  revision: a75da90b78ea4e51b88e34f3a346f0f01a241d82
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -93,7 +93,7 @@ GEM
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     http-2-next (0.1.2)
-    httpx (0.6.1)
+    httpx (0.6.2)
       http-2-next (>= 0.1.2)
       timers
     i18n (1.7.0)
