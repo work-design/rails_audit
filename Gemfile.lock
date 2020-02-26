@@ -1,16 +1,17 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 976ae4c7fbdfca9c34a8c8abe12db63e3baa7866
+  revision: e4600e93de120cc2d3a49970f6f1606179f8aa06
   specs:
     default_form (1.5.0)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 4bd78d0366ada1a719514baad7c7f16fac65a71b
+  revision: e06354e68708f26cc7f96b93d6407e04d5191c8a
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
+      http-form_data (~> 2.2)
       httpx (~> 0.5)
       rails (~> 6.0)
 
@@ -91,8 +92,9 @@ GEM
       railties (>= 4.2.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    http-2-next (0.2.1)
-    httpx (0.6.3)
+    http-2-next (0.2.2)
+    http-form_data (2.2.0)
+    httpx (0.6.6)
       http-2-next (>= 0.1.2)
       timers
     i18n (1.8.1)
@@ -105,7 +107,7 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
-    mimemagic (0.3.3)
+    mimemagic (0.3.4)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.13.0)
