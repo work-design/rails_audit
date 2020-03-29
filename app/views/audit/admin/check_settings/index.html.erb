@@ -23,13 +23,13 @@
     <tr>
       <td><%= check_setting.id %></td>
       <td class="ui labels">
-        <%= link_to admin_check_setting_path(check_setting), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
+        <%= link_to admin_check_setting_path(check_setting), aria: { label: t('.show') }, class: 'ui blue mini icon button' do %>
           <i class="location arrow icon"></i>
         <% end %>
-        <%= link_to edit_admin_check_setting_path(check_setting), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+        <%= link_to edit_admin_check_setting_path(check_setting), aria: { label: t('.edit') }, class: 'ui pink mini icon button' do %>
           <i class="pencil alternate icon"></i>
         <% end %>
-        <%= link_to admin_check_setting_path(check_setting), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+        <%= link_to admin_check_setting_path(check_setting), method: :delete, aria: { label: t('.destroy') }, data: { confrim: t('.confirm') }, class: 'ui red mini icon button' do %>
           <i class="times icon"></i>
         <% end %>
       </td>
