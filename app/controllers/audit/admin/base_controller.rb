@@ -1,3 +1,3 @@
-class Audit::Admin::BaseController < RailsAudit.config.admin_controller.constantize
+class Audit::Admin::BaseController < AdminController
 
-end
+end unless defined? Audit::Admin::BaseController
