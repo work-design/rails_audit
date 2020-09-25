@@ -1,4 +1,4 @@
-class Verify::Admin::VerifiersController < Verify::Admin::BaseController
+class Audit::Admin::VerifiersController < Audit::Admin::BaseController
   before_action :set_verifier, only: [:show, :edit, :update, :destroy]
   before_action :prepare_form, only: [:new, :edit]
 

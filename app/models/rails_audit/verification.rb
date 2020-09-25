@@ -1,4 +1,4 @@
-module RailsVerify::Verification
+module RailsAudit::Verification
   extend ActiveSupport::Concern
 
   included do

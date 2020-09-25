@@ -1,4 +1,4 @@
 class Verifier < ApplicationRecord
-  include RailsVerify::Verifier
+  include RailsAudit::Verifier
 end unless defined? Verifier
 
