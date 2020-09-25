@@ -8,7 +8,7 @@ module RailsAudit::Application
       next unless record.is_a?(ActiveRecord::Base)
       save_audits(record, **options)
     end
-    
+
     local_records = Array(local).map!(&:to_sym) & local_variables
     local_records.each do |ivar|
       record = eval(ivar)
@@ -16,7 +16,7 @@ module RailsAudit::Application
       save_audits(record, **options)
     end
   end
-  
+
   def save_audits(record, **options)
     record.save_audits(
       operator: rails_audit_user,
@@ -25,10 +25,6 @@ module RailsAudit::Application
       remote_ip: request.remote_ip,
       **options.slice(:only, :except, :include, :note, :extra)
     )
-  end
-
-  def rails_audit_user
-    current_user
   end
 
 end

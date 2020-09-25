@@ -1,20 +1,8 @@
-<div class="ui top attached borderless menu">
-  <div class="header item">Checks</div>
-  <div class="right menu">
-    <div class="item">
-      <%= link_to 'New Check', new_check_path, class: 'button is-link is-small' %>
-    </div>
-  </div>
-</div>
-
-<div class="ui attached segment">
-  <%= render 'filter' %>
-</div>
+<%= render 'filter_form' %>
 
 <table class="table is-hoverable is-fullwidth">
   <thead>
     <tr>
-      <th><%= Check.human_attribute_name(:id) %></th>
       <th><%= Check.human_attribute_name(:member_id) %></th>
       <th><%= Check.human_attribute_name(:comment) %></th>
       <th><%= Check.human_attribute_name(:verified) %></th>
@@ -25,7 +13,6 @@
   <tbody>
   <% @checks.each do |check| %>
     <tr>
-      <td><%= check.id %></td>
       <td><%= check.member_id %></td>
       <td><%= check.comment %></td>
       <td><%= check.verified %></td>

@@ -12,7 +12,7 @@ class Audit::Admin::ChecksController < Audit::Admin::BaseController
   def create
     @check = Check.new(check_params)
 
-    if @check.save
+    unless @check.save
       render :new, locals: { model: @check }, status: :unprocessable_entity
     end
   end
@@ -25,8 +25,8 @@ class Audit::Admin::ChecksController < Audit::Admin::BaseController
 
   def update
     @check.assign_attributes(check_params)
-    
-    if @check.save
+
+    unless @check.save
       render :edit, locals: { model: @check }, status: :unprocessable_entity
     end
   end
@@ -51,7 +51,8 @@ class Audit::Admin::ChecksController < Audit::Admin::BaseController
       :state
     )
     q.merge! checking_type: params[:checking_type], checking_id: params[:checking_id]
-    q.merge! operator_type: rails_audit_user.class.name, operator_id: rails_audit_user.id
+    q.merge! member_id: current_member&.id
+    q.merge! user_id: current_user.id
     q
   end
 
