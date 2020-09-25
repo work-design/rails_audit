@@ -1,0 +1,3 @@
+<%= form_with model: @verifier, url: admin_verifiers_path(params[:verifiable_type], params[:verifiable_id]), data: { controller: 'input' } do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+<% end %>

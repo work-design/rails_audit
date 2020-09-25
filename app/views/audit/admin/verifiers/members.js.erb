@@ -1,0 +1,3 @@
+<% form_object = form_object(@verifier, theme: nil) %>
+
+document.getElementById('verifier_member_id').parentNode.innerHTML = '<%= j(render partial: 'member_field', locals: { f: form_object }) %>'

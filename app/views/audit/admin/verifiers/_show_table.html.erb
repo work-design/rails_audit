@@ -1,0 +1,24 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>
+        <%= link_to t('.edit'), edit_admin_verifier_path(@verifier), class: 'button is-small is-link', remote: true %>
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="has-text-right"><%= Verifier.human_attribute_name(:name) %></td>
+      <td><%= @verifier.name %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Verifier.human_attribute_name(:job_title_id) %></td>
+      <td><%= @verifier.job_title_id %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Verifier.human_attribute_name(:member_id) %></td>
+      <td><%= @verifier.member_id %></td>
+    </tr>
+  </tbody>
+</table>

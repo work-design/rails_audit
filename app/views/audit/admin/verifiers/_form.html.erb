@@ -1,0 +1,5 @@
+<%= render 'shared/error_messages', target: @verifier %>
+<%= f.text_field :name %>
+<%= f.collection_select :job_title_id, @job_titles, :id, :name, { include_blank: true }, { data: { action: 'input#filter', url: members_admin_verifiers_path(params[:verifiable_type], params[:verifiable_id]) } } %>
+<%= f.select :member_id, options_for_select([]) %>
+<%= f.submit %>
