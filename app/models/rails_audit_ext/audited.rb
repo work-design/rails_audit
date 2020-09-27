@@ -1,4 +1,4 @@
-module RailsAudit::Audited
+module RailsAuditExt::Audited
   extend ActiveSupport::Concern
 
   included do
@@ -20,7 +20,7 @@ module RailsAudit::Audited
       except = RailsAudit.config.default_except + except
       audit.audited_changes = self.saved_changes.except(*except)
     end
-    
+
     result = {}
     include.each do |key|
       targets = self.public_send(key)
@@ -36,7 +36,7 @@ module RailsAudit::Audited
       end
     end
     audit.related_changes = result
-    
+
     return if audit.audited_changes.blank? && audit.related_changes.blank?
 
     if self.destroyed?

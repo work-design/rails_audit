@@ -25,7 +25,7 @@ Unlike [audited](https://github.com/collectiveidea/audited) and [paper_trail](ht
 
 ```ruby
 class User < ActiveRecord::Base
-  include RailsAudit::Audited
+  include RailsAuditExt::Audited
   
 end
 

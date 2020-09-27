@@ -1,5 +1,6 @@
 module RailsAudit::Audit
   extend ActiveSupport::Concern
+
   included do
     attribute :action, :string, default: 'update'
     attribute :audited_changes, :json, default: {}

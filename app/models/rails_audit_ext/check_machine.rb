@@ -1,4 +1,4 @@
-module RailsAudit::CheckMachine
+module RailsAuditExt::CheckMachine
   extend ActiveSupport::Concern
 
   included do
