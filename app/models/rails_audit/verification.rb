@@ -10,7 +10,12 @@ module RailsAudit::Verification
     belongs_to :verified, polymorphic: true
     belongs_to :verifier
     belongs_to :member
+    belongs_to :job_title
 
+    after_initialize if: :new_record? do
+      self.job_title ||= verifier.job_title
+      self.member ||= verifier.member
+    end
     after_create_commit :checking_trigger
   end
 
