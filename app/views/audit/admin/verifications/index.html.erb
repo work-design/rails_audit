@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th><%= Check.human_attribute_name(:member_id) %></th>
-      <th><%= Check.human_attribute_name(:comment) %></th>
+      <th><%= Check.human_attribute_name(:note) %></th>
       <th><%= Check.human_attribute_name(:verified) %></th>
       <th><%= Check.human_attribute_name(:position) %></th>
       <th>Actions</th>
@@ -14,7 +14,7 @@
   <% @checks.each do |check| %>
     <tr>
       <td><%= check.member_id %></td>
-      <td><%= check.comment %></td>
+      <td><%= check.note %></td>
       <td><%= check.verified %></td>
       <td><%= check.position %></td>
       <td class="ui labels">

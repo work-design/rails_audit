@@ -2,6 +2,7 @@ module RailsAuditExt::Verified
   extend ActiveSupport::Concern
 
   included do
+    include RailsCom::StateMachine
     has_many :verifications, -> { order(position: :asc) }, as: :verified, dependent: :delete_all
   end
 

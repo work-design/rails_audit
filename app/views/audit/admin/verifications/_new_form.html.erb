@@ -1,0 +1,7 @@
+<%= form_with model: @verification, url: admin_verifications_path do |f| %>
+  <%= render 'shared/error_messages', target: @verification %>
+  <%= f.hidden_field :state %>
+  <%= f.text_area :note %>
+  <%= f.check_box :confirmed %>
+  <%= f.submit %>
+<% end %>

@@ -1,7 +1,0 @@
-<%= form_with model: @check, url: checks_path do |f| %>
-  <%= render 'shared/error_messages', target: @check %>
-  <%= f.hidden_field :state %>
-  <%= f.text_area :note %>
-  <%= f.check_box :confirmed %>
-  <%= f.submit %>
-<% end %>

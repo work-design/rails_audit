@@ -16,15 +16,7 @@ module RailsAudit::Verification
 
   def checking_trigger
     if self.confirmed
-      checking.do_trigger state: self.state
-
-      if verifier
-        va = verifier.verifications.build
-        va.verified_type = checking_type
-        va.verified_id = checking_id
-        va.member_id = member_id
-        va.save
-      end
+      verified.do_trigger state: self.state
     end
   end
 

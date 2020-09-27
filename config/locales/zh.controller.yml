@@ -1,12 +1,12 @@
 zh:
   audit:
     admin:
-      checks:
-        new:
-          check: 审核
       approvals:
         index:
           title: 待审核
       audits:
         index:
           title: 操作日志
+      verifications:
+        new:
+          title: 审核

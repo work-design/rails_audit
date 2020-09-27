@@ -1,9 +1,9 @@
 zh:
   activerecord:
     models:
-      check: 审核
+      verification: 审核
     attributes:
-      check:
+      verification:
         confirmed: 同意
         comment: 备注
       approval:
