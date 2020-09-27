@@ -10,4 +10,7 @@ module RailsAudit::Verification
     belongs_to :member
   end
 
+
+
+
 end

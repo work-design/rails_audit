@@ -1,2 +1,1 @@
-$('#modal').replaceWith('<%= j(render 'index') %>')
-$('#modal').modal('show')
+document.getElementById('modal').innerHTML = '<%= j(render partial: 'index') %>'

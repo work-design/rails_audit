@@ -5,12 +5,16 @@ module RailsAudit::Verified
     has_many :verifications, -> { order(position: :asc) }, as: :verified, dependent: :delete_all
   end
 
+  def verifiers
+    taxon.verifiers
+  end
+
   def next_verifiers
-    taxon.verifiers.pluck(:id) - verifications.pluck(:verifier_id)
+    taxon.verifiers.where.not(id: verifications.pluck(:verifier_id))
   end
 
   def next_verifier
-    Verifier.find next_verifiers[0]
+    next_verifiers[0]
   end
 
 end

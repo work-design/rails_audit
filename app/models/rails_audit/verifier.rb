@@ -8,6 +8,7 @@ module RailsAudit::Verifier
     belongs_to :verifiable, polymorphic: true
     belongs_to :member, optional: true
     belongs_to :job_title, optional: true
+    has_many :verifications, dependent: :destroy
 
     acts_as_list
   end

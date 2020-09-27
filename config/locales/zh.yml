@@ -4,7 +4,7 @@ zh:
       check: 审核
     attributes:
       check:
-        confirmed: 确认？
+        confirmed: 同意
         comment: 备注
       approval:
         pending_changes: 待审核修改
@@ -16,3 +16,6 @@ zh:
         operator: 操作人
         audited_changes: 修改历史
         related_changes: 关联修改历史
+      verifier:
+        job_title_id: 职务
+        member_id: 责任人
