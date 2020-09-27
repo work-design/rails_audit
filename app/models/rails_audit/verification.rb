@@ -5,7 +5,7 @@ module RailsAudit::Verification
     attribute :state, :string
     attribute :note, :string
     attribute :position, :integer
-    attribute :confirmed, :boolean, default: true
+    attribute :confirmed, :boolean, default: false
 
     belongs_to :verified, polymorphic: true
     belongs_to :verifier

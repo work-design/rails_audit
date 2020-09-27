@@ -1,0 +1,7 @@
+zh:
+  activerecord:
+    enum:
+      verification:
+        confirmed:
+          true: 已同意
+          false: 未同意
