@@ -2,7 +2,7 @@ module RailsAuditExt::Audited
   extend ActiveSupport::Concern
 
   included do
-    has_many :audits, as: :audited, dependent: :delete_all
+    has_many :audits, as: :audited
   end
 
   # user: {
