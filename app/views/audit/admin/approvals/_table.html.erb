@@ -17,7 +17,7 @@
       <td><%= approval.approved_at %></td>
       <td>
         <div class="ui toggle checkbox">
-          <%= check_box_tag '[approval]approved', nil, approval.approved, data: { method: :patch, remote: true, url: admin_approval_path(approval), submit: true }, id: nil %>
+          <%= check_box_tag '[approval]approved', nil, approval.approved, data: { method: :patch, url: admin_approval_path(approval), submit: true }, id: nil %>
         </div>
       </td>
     </tr>

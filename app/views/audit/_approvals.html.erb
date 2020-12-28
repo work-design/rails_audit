@@ -2,12 +2,12 @@
   <span class="ui label"><%= approval.state_i18n %></span>
   <% if expense.can_operate?(current_member) %>
     <div class="ui mini buttons">
-      <%= link_to t('.approve'), new_check_path('Expense', expense.id, state: expense.next_state_state), remote: true, class: 'ui mini positive button' %>
+      <%= link_to t('.approve'), new_check_path('Expense', expense.id, state: expense.next_state_state), class: 'ui mini positive button' %>
       <div class="or"></div>
-      <%= link_to Expense.enum_i18n(:state, 'rejected'), new_check_path('Expense', expense.id, state: 'rejected'), remote: true, class: 'ui mini negative button' %>
+      <%= link_to Expense.enum_i18n(:state, 'rejected'), new_check_path('Expense', expense.id, state: 'rejected'), class: 'ui mini negative button' %>
       <% if ['pending_om', 'pending_cfo'].include?(expense.state) %>
         <div class="or"></div>
-        <%= link_to Expense.enum_i18n(:state, 'pending_md'), new_check_path('Expense', expense.id, state: 'pending_md'), remote: true, class: 'ui mini positive button' %>
+        <%= link_to Expense.enum_i18n(:state, 'pending_md'), new_check_path('Expense', expense.id, state: 'pending_md'), class: 'ui mini positive button' %>
       <% end %>
     </div>
   <% end %>

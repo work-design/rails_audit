@@ -46,7 +46,7 @@ end
 
 ### in View
 ```ruby
-  link_to 'Audits', audits_path('User', user.id), remote: true
+  link_to 'Audits', audits_path('User', user.id)
 ```
 
 ## 许可证
