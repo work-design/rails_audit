@@ -13,7 +13,7 @@
     <tr id="audit_<%= audit.id %>">
       <td>
         <p><%= audit.operator&.name %></p>
-        <p><time><%= audit.created_at.to_s(:rfc822) %></time></p>
+        <p><time data-controller="time"><%= audit.created_at.to_s(:rfc822) %></time></p>
         <p><%= audit.action %></p>
         <p><%= audit.controller_path %>/<%= audit.action_name %></p>
         <p><%= audit.remote_ip %></p>

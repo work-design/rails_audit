@@ -1,5 +1,5 @@
-<%= form_with model: @check do |f| %>
-  <%= render 'shared/error_messages', target: @check %>
+<%= form_with model: @verification, url: { action: 'update' } do |f| %>
+  <%= render 'shared/error_messages', target: @verification %>
   <%= f.number_field :member_id %>
   <%= f.text_area :note %>
   <%= f.check_box :confirmed %>
