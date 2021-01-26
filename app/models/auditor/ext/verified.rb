@@ -3,7 +3,7 @@ module Auditor
     extend ActiveSupport::Concern
 
     included do
-      include RailsCom::StateMachine
+      include Com::Ext::StateMachine
       has_many :verifications, -> { order(position: :asc) }, as: :verified, dependent: :delete_all, inverse_of: :verified
     end
 

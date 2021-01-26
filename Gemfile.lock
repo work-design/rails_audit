@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 42d3b6582cba371bb96d28fdb31ce52dff9aef46
+  revision: 82c12cf25706676875213113746f168ce8f1cc82
   specs:
     rails_com (1.2.9)
       acme-client
@@ -114,7 +114,7 @@ GEM
       activesupport (>= 4.2.0)
     http-2-next (0.3.0)
     http-form_data (2.3.0)
-    httpx (0.10.2)
+    httpx (0.11.0)
       http-2-next (>= 0.1.2)
       timers
     i18n (1.8.5)
@@ -179,7 +179,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 1.0)
     rake (13.0.3)
-    ruby2_keywords (0.0.2)
+    ruby2_keywords (0.0.4)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
