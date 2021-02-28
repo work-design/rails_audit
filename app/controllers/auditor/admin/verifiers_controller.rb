@@ -49,7 +49,7 @@ module Auditor
       q_params = {}
       q_params.merge! default_params
 
-      @job_titles = JobTitle.default_where(q_params)
+      @job_titles = Org::JobTitle.default_where(q_params)
     end
 
     def set_verifier
