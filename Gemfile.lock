@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: e4162f595651bcd2e8ad733ad79ea78999137b2f
+  revision: 75de8d5d009a86c942e7186e0e76b4fa874b408a
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: dad3b5a7dc5dce1d816cca52b972d43fa151ff8e
+  revision: 98dced474f590ef6b2ca4c237f967e424a7ea1cc
   specs:
     rails_com (1.2.9)
       acme-client
@@ -112,9 +112,9 @@ GEM
     faraday-net_http (1.0.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    http-2-next (0.3.0)
+    http-2-next (0.4.0)
     http-form_data (2.3.0)
-    httpx (0.11.3)
+    httpx (0.12.0)
       http-2-next (>= 0.1.2)
       timers
     i18n (1.8.5)
@@ -144,7 +144,7 @@ GEM
     mini_portile2 (2.5.0)
     minitest (5.14.2)
     multipart-post (2.1.1)
-    nio4r (2.5.5)
+    nio4r (2.5.7)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
