@@ -1,6 +1,6 @@
 zh:
-  audit:
-    title: 操作记录
+  auditor:
+    title: 操作审计
     admin:
       approvals:
         index:
