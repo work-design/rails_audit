@@ -3,7 +3,7 @@ module Auditor
     extend ActiveSupport::Concern
 
     included do
-      has_many :audits, as: :audited
+      has_many :audits, class_name: 'Auditor::Audit', as: :audited
     end
 
     # user: {

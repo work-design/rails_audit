@@ -3,7 +3,6 @@ module Auditor
     extend ActiveSupport::Concern
 
     included do
-      attribute :state, :string, default: 'init'
       attribute :approved, :boolean, default: false
       attribute :pending_changes, :json, default: {}
       attribute :related_changes, :json, default: {}
@@ -16,7 +15,7 @@ module Auditor
 
       enum state: {
         init: 'init'
-      }
+      }, _default: 'init'
 
       before_update :apply_changes, if: -> { approved_changed? }
 

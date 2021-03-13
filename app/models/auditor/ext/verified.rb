@@ -4,7 +4,7 @@ module Auditor
 
     included do
       include Com::Ext::StateMachine
-      has_many :verifications, -> { order(position: :asc) }, as: :verified, dependent: :delete_all, inverse_of: :verified
+      has_many :verifications, -> { order(position: :asc) }, class_name: 'Auditor::Verification', as: :verified, dependent: :delete_all, inverse_of: :verified
     end
 
     def all_verifications
