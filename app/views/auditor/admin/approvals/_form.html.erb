@@ -1,5 +1,5 @@
 <%= form_with model: @approval do |f| %>
-  <%= render 'shared/error_messages', target: @approval %>
+  <%= render 'error_messages', target: @approval %>
   <%= f.text_field :comment %>
   <%= f.text_field :state %>
   <%= f.submit %>

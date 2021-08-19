@@ -1,5 +1,5 @@
 <%= form_with model: @verification, url: { action: 'create' } do |f| %>
-  <%= render 'shared/error_messages', target: @verification %>
+  <%= render 'error_messages', target: f.object %>
   <%= f.hidden_field :state %>
   <%= f.text_area :note %>
   <%= f.check_box :confirmed %>
