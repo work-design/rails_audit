@@ -1,9 +1,6 @@
-$:.push File.expand_path('lib', __dir__)
-require 'rails_audit/version'
-
 Gem::Specification.new do |s|
   s.name = 'rails_audit'
-  s.version = RailsAudit::VERSION
+  s.version = '1.0.3'
   s.authors = ['qinmingyuan']
   s.email = ['mingyuan0715@foxmail.com']
   s.homepage = 'https://github.com/work-design/rails_audit'
