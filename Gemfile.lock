@@ -1,13 +1,13 @@
 GIT
-  remote: https://github.com/qinmingyuan/default_form.git
-  revision: 476ba7231079b1071415ad4e953b55ce16ae1d0d
+  remote: https://github.com/qinmingyuan/viter.git
+  revision: a6c36456e695b32d427179c1bfc1c0df2c66792c
   specs:
-    default_form (1.5.1)
-      rails_com (~> 1.2)
+    viter (0.1)
+      rails
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 10567cb881fbba894485cc2b325346c3bbdaffc0
+  revision: 8949509c4f26ecf76adecfdbb2e221535ee47ac0
   specs:
     rails_com (1.2.9)
       acme-client
@@ -18,7 +18,22 @@ GIT
       httpx (~> 0.16)
       kaminari
       rails (>= 6.1)
+      rails_extend
       turbo-rails
+
+GIT
+  remote: https://github.com/work-design/rails_extend.git
+  revision: 48e8b20f65097c981b8ecc3b9b35d2082512d9e8
+  specs:
+    rails_extend (1.0.0)
+      rails (>= 6.0)
+
+GIT
+  remote: https://github.com/work-design/rails_ui.git
+  revision: c8d7bfe6d598c9433373e4e8c0e7c17ebc98b17a
+  specs:
+    rails_ui (0.0.1)
+      rails
 
 PATH
   remote: .
@@ -29,7 +44,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    acme-client (2.0.8)
+    acme-client (2.0.9)
       faraday (>= 0.17, < 2.0.0)
     actioncable (6.1.4.1)
       actionpack (= 6.1.4.1)
@@ -92,20 +107,19 @@ GEM
       zeitwerk (~> 2.3)
     acts_as_list (1.0.4)
       activerecord (>= 4.2)
+    amazing_print (1.3.0)
     builder (3.2.4)
     closure_tree (7.3.0)
       activerecord (>= 4.2.10)
       with_advisory_lock (>= 4.0.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    debug (1.0.0)
+      irb
+      reline (>= 0.2.7)
     default_where (2.3.0)
       activerecord (>= 4.0, <= 7.0)
     erubi (1.10.0)
-    factory_bot (6.2.0)
-      activesupport (>= 5.0.0)
-    factory_bot_rails (6.2.0)
-      factory_bot (~> 6.2.0)
-      railties (>= 5.0.0)
     faraday (1.7.1)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -129,11 +143,16 @@ GEM
       activesupport (>= 5.0)
     http-2-next (0.5.0)
     http-form_data (2.3.0)
-    httpx (0.16.1)
+    httpx (0.17.0)
       http-2-next (>= 0.4.1)
       timers
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    io-console (0.5.9)
+    irb (1.3.7)
+      reline (>= 0.2.7)
+    jbuilder (2.11.2)
+      activesupport (>= 5.0.0)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
@@ -161,6 +180,9 @@ GEM
     nokogiri (1.12.4)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
+    pg (1.2.3)
+    puma (5.4.0)
+      nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -192,7 +214,12 @@ GEM
       rake (>= 0.13)
       thor (~> 1.0)
     rake (13.0.6)
+    rdoc (6.3.2)
+    reline (0.2.7)
+      io-console (~> 0.5)
     ruby2_keywords (0.0.5)
+    sdoc (2.2.0)
+      rdoc (>= 5.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -200,10 +227,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.1.0)
     timers (4.3.3)
-    turbo-rails (0.7.8)
+    turbo-rails (0.7.11)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -218,11 +244,18 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  default_form!
-  factory_bot_rails
+  amazing_print
+  debug (>= 1.0.0.rc)
+  jbuilder
+  pg
+  puma
+  rails
   rails_audit!
   rails_com!
-  sqlite3
+  rails_extend!
+  rails_ui!
+  sdoc
+  viter!
 
 BUNDLED WITH
    2.2.22
