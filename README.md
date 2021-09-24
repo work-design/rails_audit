@@ -1,5 +1,9 @@
 # RailsAudit
 
+[![测试](https://github.com/work-design/rails_audit/actions/workflows/test.yml/badge.svg)](https://github.com/work-design/rails_audit/actions/workflows/test.yml)
+[![Docker构建](https://github.com/work-design/rails_audit/actions/workflows/cd.yml/badge.svg)](https://github.com/work-design/rails_audit/actions/workflows/cd.yml)
+[![Gem](https://github.com/work-design/rails_audit/actions/workflows/gempush.yml/badge.svg)](https://github.com/work-design/rails_audit/actions/workflows/gempush.yml)
+
 Unlike [audited](https://github.com/collectiveidea/audited) and [paper_trail](https://github.com/airblade/paper_trail) etc. These model audit tools use model callbacks to record every changes.
 
 `rails_audit` record ActiveRecord Model changes in Controllers, it will record context with model changes:

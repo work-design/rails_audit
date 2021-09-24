@@ -1,13 +1,6 @@
 GIT
-  remote: https://github.com/qinmingyuan/viter.git
-  revision: a6c36456e695b32d427179c1bfc1c0df2c66792c
-  specs:
-    viter (0.1)
-      rails
-
-GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 8949509c4f26ecf76adecfdbb2e221535ee47ac0
+  revision: 2377ede7104b675247bf7b26bc279591d54d0a21
   specs:
     rails_com (1.2.9)
       acme-client
@@ -16,23 +9,31 @@ GIT
       default_where (~> 2.2)
       http-form_data (~> 2.3)
       httpx (~> 0.16)
+      jbuilder
       kaminari
       rails (>= 6.1)
       rails_extend
       turbo-rails
 
 GIT
-  remote: https://github.com/work-design/rails_extend.git
-  revision: 48e8b20f65097c981b8ecc3b9b35d2082512d9e8
+  remote: https://github.com/work-design/rails_design.git
+  revision: 6bfcdfeadc21e0901ae3fe74873bd9a257d45e8d
   specs:
-    rails_extend (1.0.0)
-      rails (>= 6.0)
+    rails_design (0.0.1)
+      rails
 
 GIT
-  remote: https://github.com/work-design/rails_ui.git
-  revision: c8d7bfe6d598c9433373e4e8c0e7c17ebc98b17a
+  remote: https://github.com/work-design/rails_extend.git
+  revision: a01f5bcfbe28b070f92ef4edefe781497cc69a23
   specs:
-    rails_ui (0.0.1)
+    rails_extend (1.0.0)
+      rails (>= 5.0)
+
+GIT
+  remote: https://github.com/work-design/rails_vite.git
+  revision: ef130e9069c8f980bcc749dfbdeb026c632d4b8a
+  specs:
+    rails_vite (0.0.1)
       rails
 
 PATH
@@ -120,7 +121,7 @@ GEM
     default_where (2.3.0)
       activerecord (>= 4.0, <= 7.0)
     erubi (1.10.0)
-    faraday (1.7.1)
+    faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -229,7 +230,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.1.0)
     timers (4.3.3)
-    turbo-rails (0.7.11)
+    turbo-rails (0.7.15)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -245,17 +246,16 @@ PLATFORMS
 
 DEPENDENCIES
   amazing_print
-  debug (>= 1.0.0.rc)
-  jbuilder
+  debug
   pg
   puma
   rails
   rails_audit!
   rails_com!
+  rails_design!
   rails_extend!
-  rails_ui!
+  rails_vite!
   sdoc
-  viter!
 
 BUNDLED WITH
    2.2.22
