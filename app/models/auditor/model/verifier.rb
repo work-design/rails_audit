@@ -10,7 +10,7 @@ module Auditor
       belongs_to :job_title, class_name: 'Org::JobTitle', optional: true
 
       belongs_to :verifiable, polymorphic: true
-      has_many :verifications, dependent: :destroy, inverse_of: :verifier
+      has_many :verifications, dependent: :destroy_async, inverse_of: :verifier
 
       acts_as_list
     end
