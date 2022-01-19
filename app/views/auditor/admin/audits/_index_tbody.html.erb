@@ -1,6 +1,6 @@
 <td>
   <p><%= model.operator&.name %></p>
-  <p><time data-controller="time"><%= model.created_at.to_s(:iso8601) %></time></p>
+  <p><time data-controller="time"><%= model.created_at.to_formatted_s(:iso8601) %></time></p>
   <p><%= model.action %></p>
   <p><%= model.controller_path %>/<%= model.action_name %></p>
   <p><%= model.remote_ip %></p>
