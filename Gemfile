@@ -7,7 +7,6 @@ gem 'puma'
 gem 'pg'
 
 gem 'rails_com', github: 'work-design/rails_com'
-gem 'rails_vite', github: 'work-design/rails_vite'
 gem 'rails_extend', github: 'work-design/rails_extend'
 gem 'rails_design', github: 'work-design/rails_design'
 
