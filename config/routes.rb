@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope RailsExtend.default_routes_scope do
+  scope RailsCom.default_routes_scope do
     namespace :auditor, defaults: { business: 'auditor' } do
       scope ':audited_type/:audited_id', module: 'admin', defaults: { namespace: 'admin' } do
         resources :audits, only: [:index]
