@@ -28,5 +28,9 @@ module Auditor
       )
     end
 
+    def rails_audit_user
+      current_user
+    end
+
   end
 end
