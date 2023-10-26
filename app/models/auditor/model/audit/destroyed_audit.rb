@@ -9,7 +9,8 @@ module Auditor
     end
 
     def record
-      audited_type.constantize.new audited_changes
+      return @record if defined? @record
+      @record = audited_type.constantize.new audited_changes
     end
 
   end
