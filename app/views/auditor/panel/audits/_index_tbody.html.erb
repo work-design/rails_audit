@@ -1,0 +1,38 @@
+<td>
+  <p><%= model.operator&.name %></p>
+  <p><time data-controller="time"><%= model.created_at.to_formatted_s(:iso8601) %></time></p>
+  <p><%= model.action %></p>
+  <p><%= model.controller_path %>/<%= model.action_name %></p>
+  <p><%= model.remote_ip %></p>
+</td>
+<td><%= model.note %></td>
+<td class="ui list">
+  <% model.audited_changes_i18n.each do |key, value| %>
+    <div class="item">
+      <div class="ui label">
+        <%= key %>:
+        <div class="detail">
+          <span><%= value[0] %></span>
+          <i class="arrow circle right icon grey"></i>
+          <span><%= value[1] %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</td>
+<td>
+  <% model.related_changes.each do |key, value| %>
+    <% value.each do |relate| %>
+      <div class="ui segment">
+        <span class="ui blue label"><%= key %>: <%= relate[:id] %></span>
+        <div class="ui divider"></div>
+        <% relate[:changes].each do |k, v| %>
+          <div class="ui label"><%= k %>: </div>
+          <%= v[0] %>
+          <i class="arrow circle right icon grey"></i>
+          <%= v[1] %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</td>

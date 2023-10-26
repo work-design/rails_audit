@@ -1,5 +1,5 @@
 <turbo-frame id="modal">
-  <%= render layout: 'index_table', locals: { cache_key: Auditor::Audit.column_names.hash } do %>
+  <%= render layout: 'index_table' do %>
     <%= render partial: 'index_tbody', collection: @audits, as: :model %>
   <% end %>
 

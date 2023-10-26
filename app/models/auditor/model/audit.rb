@@ -19,7 +19,7 @@ module Auditor
     end
 
     def audited_changes_i18n
-      audited_changes.transform_keys { |key| audited.class.human_attribute_name(key) }
+      audited_changes.transform_keys { |key| audited_type.constantize.human_attribute_name(key) }
     end
 
   end

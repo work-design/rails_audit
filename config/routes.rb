@@ -22,6 +22,10 @@ Rails.application.routes.draw do
           resources :verifications
         end
       end
+
+      namespace :panel, defaults: { namespace: 'panel' } do
+        resources :audits
+      end
     end
   end
 end
