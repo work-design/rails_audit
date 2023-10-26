@@ -1,8 +1,4 @@
 en:
-  audit/admin:
-    checks:
-      new:
-        check: 审核
   activerecord:
     models:
       check: 审核

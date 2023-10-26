@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = 'rails_audit'
   s.version = '1.0.4'
-  s.authors = ['qinmingyuan']
+  s.authors = ['Mingyuan Qin']
   s.email = ['mingyuan0715@foxmail.com']
   s.homepage = 'https://github.com/work-design/rails_audit'
   s.summary = 'Audit changes for model with operator'

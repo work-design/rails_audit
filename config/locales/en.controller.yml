@@ -1,0 +1,18 @@
+en:
+  auditor:
+    title: 操作审计
+    admin:
+      approvals:
+        index:
+          title: 待审核
+      audits:
+        index:
+          title: 操作日志
+      verifications:
+        new:
+          title: 审核
+    panel:
+      title: Audits
+      audits:
+        index:
+          title: Audits Log

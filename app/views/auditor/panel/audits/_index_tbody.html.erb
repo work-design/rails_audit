@@ -6,18 +6,19 @@
   <p><%= model.remote_ip %></p>
 </td>
 <td><%= model.note %></td>
-<td class="ui list">
-  <% model.audited_changes_i18n.each do |key, value| %>
-    <div class="item">
-      <div class="ui label">
-        <%= key %>:
-        <div class="detail">
-          <span><%= value %></span>
-          <i class="arrow circle right icon grey"></i>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<td>
+<% model.audited_changes_i18n.each do |key, value| %>
+  <div>
+    <span><%= key %>:</span>
+    <% if value.is_a?(Array) %>
+      <span><%= value[0] %></span>
+      <i class="fa-solid fa-arrow-right"></i>
+      <span><%= value[1] %></span>
+    <% else %>
+      <span><%= value %></span>
+    <% end %>
+  </div>
+<% end %>
 </td>
 <td>
   <% model.related_changes.each do |key, value| %>
