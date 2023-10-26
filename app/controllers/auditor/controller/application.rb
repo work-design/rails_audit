@@ -2,7 +2,7 @@ module Auditor
   module Controller::Application
 
     # after_action
-    def mark_audits(instance: [], local: [], **options)
+    def mark_audits(instance: [], local: [], binding:, **options)
       instance_records = Array(instance).map!(&:to_sym) & valid_ivars
       instance_records.each do |ivar|
         record = instance_variable_get(ivar)
@@ -12,7 +12,7 @@ module Auditor
 
       local_records = Array(local).map!(&:to_sym) & local_variables
       local_records.each do |ivar|
-        record = eval(ivar)
+        record = binding.local_variable_get(ivar)
         next unless record.is_a?(ActiveRecord::Base)
         save_audits(record, **options)
       end
