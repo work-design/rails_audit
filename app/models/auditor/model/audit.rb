@@ -3,6 +3,7 @@ module Auditor
     extend ActiveSupport::Concern
 
     included do
+      attribute :type, :string
       attribute :action, :string, default: 'update'
       attribute :audited_changes, :json, default: {}
       attribute :related_changes, :json, default: {}
@@ -14,7 +15,7 @@ module Auditor
       attribute :created_at, :datetime, index: true, null: false
 
       belongs_to :audited, polymorphic: true
-      belongs_to :operator, polymorphic: true
+      belongs_to :operator, polymorphic: true, optional: true
     end
 
     def audited_changes_i18n
