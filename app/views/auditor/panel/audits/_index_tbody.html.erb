@@ -1,11 +1,11 @@
 <td>
   <p><%= model.operator&.name %></p>
-  <p><time data-controller="time"><%= model.created_at.to_formatted_s(:iso8601) %></time></p>
+  <p><time data-controller="time" data-format="human"><%= model.created_at.to_formatted_s(:iso8601) %></time></p>
   <p><%= model.action %></p>
   <p><%= model.controller_path %>/<%= model.action_name %></p>
   <p><%= model.remote_ip %></p>
+  <p><%= model.note %></p>
 </td>
-<td><%= model.note %></td>
 <td>
 <% max_width = model.audited_changes_i18n.keys.map(&:length).max %>
 <% model.audited_changes_i18n.each do |key, value| %>

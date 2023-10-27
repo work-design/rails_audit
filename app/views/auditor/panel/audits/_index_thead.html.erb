@@ -1,4 +1,6 @@
-<th><%= Auditor::Audit.human_attribute_name(:operator) %></th>
-<th><%= Auditor::Audit.human_attribute_name(:note) %></th>
-<th><%= Auditor::Audit.human_attribute_name(:audited_changes) %></th>
+<th>
+  <p><%= Auditor::Audit.human_attribute_name(:operator) %></p>
+  <p><%= Auditor::Audit.human_attribute_name(:note) %></p>
+</th>
+<th class="has-text-centered"><%= Auditor::Audit.human_attribute_name(:audited_changes) %></th>
 <th><%= Auditor::Audit.human_attribute_name(:related_changes) %></th>
