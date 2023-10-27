@@ -19,7 +19,8 @@ module Auditor
     end
 
     def audited_changes_i18n
-      audited_changes.transform_keys { |key| audited_type.constantize.human_attribute_name(key) }
+      r = audited_changes.transform_keys { |key| audited_type.constantize.human_attribute_name(key) }
+      r.compact_blank
     end
 
   end
