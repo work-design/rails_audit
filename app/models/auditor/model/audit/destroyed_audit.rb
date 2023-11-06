@@ -13,7 +13,9 @@ module Auditor
       @record = audited_type.constantize.new audited_changes
     end
 
-
+    def restore
+      record.save
+    end
 
   end
 end

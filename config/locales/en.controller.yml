@@ -1,18 +1,20 @@
 en:
   auditor:
-    title: 操作审计
+    title: Audits
     admin:
       approvals:
         index:
-          title: 待审核
+          title: Pending Approval
       audits:
         index:
-          title: 操作日志
+          title: Audits
       verifications:
         new:
-          title: 审核
+          title: Verifications
     panel:
       title: Audits
       audits:
         index:
           title: Audits Log
+        restore:
+          title: Restore

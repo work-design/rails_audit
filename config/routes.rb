@@ -24,7 +24,11 @@ Rails.application.routes.draw do
       end
 
       namespace :panel, defaults: { namespace: 'panel' } do
-        resources :audits
+        resources :audits do
+          member do
+            patch :restore
+          end
+        end
       end
     end
   end
