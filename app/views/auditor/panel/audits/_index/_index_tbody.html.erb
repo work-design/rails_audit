@@ -6,7 +6,7 @@
   <p><%= model.remote_ip %></p>
   <p><%= model.note %></p>
 </td>
-<td>
+<td class="has-background-light">
 <% max_width = model.audited_changes_i18n.keys.map(&:length).max %>
 <% model.audited_changes_i18n.each do |key, value| %>
   <div>
