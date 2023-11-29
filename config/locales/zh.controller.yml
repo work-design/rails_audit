@@ -1,7 +1,8 @@
 zh:
   auditor:
-    title: 操作审计
-    admin:
+    title: 操作日志
+    panel:
+      title: 操作日志
       approvals:
         index:
           title: 待审核
