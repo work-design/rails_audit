@@ -22,18 +22,17 @@
 <% end %>
 </td>
 <td>
-  <% model.related_changes.each do |key, value| %>
-    <% value.each do |relate| %>
-      <div class="ui segment">
-        <span class="ui blue label"><%= key %>: <%= relate[:id] %></span>
-        <div class="ui divider"></div>
-        <% relate[:changes].each do |k, v| %>
-          <div class="ui label"><%= k %>: </div>
-          <%= v[0] %>
-          <i class="arrow circle right icon grey"></i>
-          <%= v[1] %>
-        <% end %>
+  <% model.related_changes.each do |key, records| %>
+    <span class="tag"><%= key %></span>
+    <% records.each do |record| %>
+      <% record.each do |k, v| %>
+      <div>
+        <span><%= k %></span>
+        <span><%= v[0] %></span>
+        <i class="fa-solid fa-arrow-right"></i>
+        <span><%= v[1] %></span>
       </div>
+      <% end %>
     <% end %>
   <% end %>
 </td>
