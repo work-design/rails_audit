@@ -46,7 +46,7 @@ module Auditor
 
       audit.operator_type = operator.class.name
       audit.operator_id = operator.id
-      audit.assign_attributes = extra_options.except!(:note, :controller_path, :action_name, :remote_ip)
+      audit.assign_attributes extra_options.except!(:note, :controller_path, :action_name, :remote_ip)
       audit.extra = extra_options
       audit.save
     end
