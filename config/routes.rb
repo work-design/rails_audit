@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   scope RailsCom.default_routes_scope do
     namespace :auditor, defaults: { business: 'auditor' } do
       scope ':audited_type/:audited_id', module: 'admin', defaults: { namespace: 'admin' } do
-        resources :audits, only: [:index]
+        resources :audits, only: [:index] do
+          collection do
+            post '/' => :index
+          end
+        end
       end
 
       scope ':approving_type/:approving_id', module: 'admin', defaults: { namespace: 'admin' } do
