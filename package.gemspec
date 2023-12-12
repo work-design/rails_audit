@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.authors = ['Mingyuan Qin']
   s.email = ['mingyuan0715@foxmail.com']
   s.summary = 'Audit changes for model with operator'
-  s.description = 'Description of RailsAudit.'
+  s.description = 'Description of RailsAudit'
 
   s.files = Dir[
     '{app,config,db,lib}/**/*',
