@@ -9,19 +9,19 @@
   </thead>
   <tbody>
     <tr>
-      <td class="has-text-right"><%= Approval.human_attribute_name(:pending_changes) %></td>
+      <td><%= Approval.human_attribute_name(:pending_changes) %></td>
       <td><%= @approval.pending_changes %></td>
     </tr>
     <tr>
-      <td class="has-text-right"><%= Approval.human_attribute_name(:comment) %></td>
+      <td><%= Approval.human_attribute_name(:comment) %></td>
       <td><%= @approval.note %></td>
     </tr>
     <tr>
-      <td class="has-text-right"><%= Approval.human_attribute_name(:state) %></td>
+      <td><%= Approval.human_attribute_name(:state) %></td>
       <td><%= @approval.state %></td>
     </tr>
     <tr>
-      <td class="has-text-right"><%= Approval.human_attribute_name(:approved_at) %></td>
+      <td><%= Approval.human_attribute_name(:approved_at) %></td>
       <td><%= @approval.approved_at %></td>
     </tr>
   </tbody>
