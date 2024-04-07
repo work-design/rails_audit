@@ -1,28 +1,16 @@
-<table class="table is-hoverable is-fullwidth">
-  <thead>
-    <tr>
-      <th class="six wide">
-        <%= link_to t('.edit.title'), edit_admin_approval_path(@approval), class: 'ui mini blue right floated button' %>
-      </th>
-      <th class="ten wide"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= Approval.human_attribute_name(:pending_changes) %></td>
-      <td><%= @approval.pending_changes %></td>
-    </tr>
-    <tr>
-      <td><%= Approval.human_attribute_name(:comment) %></td>
-      <td><%= @approval.note %></td>
-    </tr>
-    <tr>
-      <td><%= Approval.human_attribute_name(:state) %></td>
-      <td><%= @approval.state %></td>
-    </tr>
-    <tr>
-      <td><%= Approval.human_attribute_name(:approved_at) %></td>
-      <td><%= @approval.approved_at %></td>
-    </tr>
-  </tbody>
-</table>
+<div>
+  <dt><%= Approval.human_attribute_name(:pending_changes) %></dt>
+  <dd><%= @approval.pending_changes %></dd>
+</div>
+<div>
+  <dt><%= Approval.human_attribute_name(:comment) %></dt>
+  <dd><%= @approval.note %></dd>
+</div>
+<div>
+  <dt><%= Approval.human_attribute_name(:state) %></dt>
+  <dd><%= @approval.state %></dd>
+</div>
+<div>
+  <dt><%= Approval.human_attribute_name(:approved_at) %></dt>
+  <dd><%= @approval.approved_at %></dd>
+</div>

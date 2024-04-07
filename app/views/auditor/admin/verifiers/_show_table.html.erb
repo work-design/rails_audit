@@ -1,24 +1,12 @@
-<table class="table is-fullwidth">
-  <thead>
-    <tr>
-      <th>
-        <%= link_to t('.edit.title'), edit_admin_verifier_path(@verifier), class: 'button is-small is-link' %>
-      </th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= Verifier.human_attribute_name(:name) %></td>
-      <td><%= @verifier.name %></td>
-    </tr>
-    <tr>
-      <td><%= Verifier.human_attribute_name(:job_title_id) %></td>
-      <td><%= @verifier.job_title_id %></td>
-    </tr>
-    <tr>
-      <td><%= Verifier.human_attribute_name(:member_id) %></td>
-      <td><%= @verifier.member_id %></td>
-    </tr>
-  </tbody>
-</table>
+<div>
+  <dt><%= Auditor::Verifier.human_attribute_name(:name) %></dt>
+  <dd><%= @verifier.name %></dd>
+</div>
+<div>
+  <dt><%= Auditor::Verifier.human_attribute_name(:job_title_id) %></dt>
+  <dd><%= @verifier.job_title_id %></dd>
+</div>
+<div>
+  <dt><%= Auditor::Verifier.human_attribute_name(:member_id) %></dt>
+  <dd><%= @verifier.member_id %></dd>
+</div>
