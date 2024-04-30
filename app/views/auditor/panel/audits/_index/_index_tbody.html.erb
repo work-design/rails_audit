@@ -10,7 +10,7 @@
 <% max_width = model.audited_changes_i18n.keys.map(&:length).max %>
 <% model.audited_changes_i18n.each do |key, value| %>
   <div>
-    <span class="has-text-mono has-text-right has-text-grey" style="display: inline-block;width: <%= max_width + 1 %>ch"><%= key %>:</span>
+    <span class="has-text-mono has-text-right color-grey" style="display: inline-block;width: <%= max_width + 1 %>ch"><%= key %>:</span>
     <% if value.is_a?(Array) %>
       <span><%= value[0] %></span>
       <i class="fa-solid fa-arrow-right"></i>
