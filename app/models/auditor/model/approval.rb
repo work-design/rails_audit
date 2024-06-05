@@ -13,9 +13,9 @@ module Auditor
       belongs_to :approving, polymorphic: true
       belongs_to :operator, polymorphic: true, optional: true
 
-      enum state: {
+      enum :state, {
         init: 'init'
-      }, _default: 'init'
+      }, default: 'init'
 
       before_update :apply_changes, if: -> { approved_changed? }
 
