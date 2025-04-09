@@ -1,6 +1,7 @@
 module Auditor
   module Controller::Application
 
+    private
     # after_action
     def mark_audits(instance: [], local: [], bind: binding, **options)
       instance_records = Array(instance).map!(&:to_sym) & valid_ivars
