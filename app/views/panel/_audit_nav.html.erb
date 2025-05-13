@@ -1,11 +1,11 @@
-<div class="menu ex-accordion">
-  <div class="menu-label">
+<div class="menu-list">
+  <div class="menu-item">
     <div>
       <i class="fa-solid fa-fw fa-tape"></i>
       <span><%= t('auditor.panel.title') %></span>
     </div>
   </div>
-  <div class="menu-list" data-empty-target="content">
-    <%= link_to t('auditor.panel.audits.index.title'), { controller: 'auditor/panel/audits' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['audits'], active: 'is-active') %>
+  <div class="menu-list pl-3">
+    <%= link_to t('auditor.panel.audits.index.title'), { controller: 'auditor/panel/audits' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['audits'], item: 'menu-item', active: 'menu-item is-active') %>
   </div>
 </div>
