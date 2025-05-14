@@ -1,9 +1,7 @@
 <div class="menu-list">
-  <div class="menu-item">
-    <div>
-      <i class="fa-solid fa-fw fa-tape"></i>
-      <span><%= t('auditor.panel.title') %></span>
-    </div>
+  <div class="py-2 px-3">
+    <i class="fa-solid fa-fw fa-tape"></i>
+    <strong><%= t('auditor.panel.title') %></strong>
   </div>
   <div class="pl-4">
     <%= link_to t('auditor.panel.audits.index.title'), { controller: 'auditor/panel/audits' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['audits'], item: 'menu-item', active: 'menu-item is-active') %>
